@@ -4,42 +4,105 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{booktabs}
-\title{Mobile Manipulation Spatial Commitments: ICLR Main-Conference Gate Archive}
+\usepackage{graphicx}
+\title{Spatial Commitment Costs Do Not Improve Local Mobile-Manipulation Planning}
 \author{Anonymous Authors}
 \begin{document}
 \maketitle
+
 \begin{abstract}
-This document is not an ICLR main-conference submission. It is the v3 main-conference gate for a generated robotics draft about mobile manipulation planning. The original research bet was: Account for spatial commitments that make future manipulation harder after base motion. After a stricter hostile review, the honest terminal decision is \textbf{KILL/ARCHIVE}. Submission-hardening version: v3.
+We rebuilt a generated mobile-manipulation idea into a concrete local geometry study: can an explicit spatial-commitment cost prevent base placements that make future manipulation harder? The v4 rebuild implements a 2D mobile-manipulation benchmark with base collision, arm approach, reachability, drawer/door swing blocking, aisle traps, clutter occlusion, multi-step task sequences, seven seeds, receding-horizon task-and-motion planning (TAMP), reachability-margin baselines, commitment-cost planning, ablations, stress sweeps, and negative cases. The result is negative. On the decisive \texttt{combined\_long\_horizon} split, \texttt{commitment\_cost\_planner} reaches $0.100 \pm 0.074$ episode success, tying \texttt{receding\_horizon\_tamp} at $0.100 \pm 0.074$ and only slightly exceeding \texttt{reachability\_margin\_sampler} at $0.071 \pm 0.056$. The paired success difference versus TAMP is $0.000$, and the future-regret difference is also $0.000$. Ablations are indistinguishable from the full method. We therefore mark the paper \textbf{KILL/ARCHIVE} for ICLR main.
 \end{abstract}
 
-\section{Gate Decision}
-The v2 paper was workshop-only. Under the active ICLR-main standard, that is insufficient. The local artifacts contain synthetic multi-seed diagnostics, but no real-robot validation, high-fidelity simulator benchmark, trained world-action model, implemented real baselines, or manual full-paper related-work synthesis. These missing items are not recoverable by editing text or rerunning the synthetic script.
+\section{Decision}
+This document is the v4 ICLR-main gate for Paper 79, \emph{Mobile Manipulation Spatial Commitments}. The previous version was killed because it only contained synthetic template evidence. The current rebuild adds an implemented local geometry benchmark. The rejection reason has changed: evidence now exists, but it does not support the central algorithmic claim.
 
-\section{Fatal ICLR-Main Blockers}
+\section{Hypothesis}
+The tested hypothesis is that explicit spatial-commitment costs help a mobile manipulator avoid base motions and base placements that make future manipulation infeasible. A pass requires the commitment planner to outperform strong receding-horizon and reachability-margin baselines, reduce future regret, and show ablation sensitivity to future commitment terms.
+
+\section{Benchmark}
+The benchmark simulates a circular mobile base and planar reach annulus in 2D scenes with rooms, narrow aisles, counters, clutter, and drawer/door swing zones. A task sequence requires reaching objects from collision-free base poses with valid arm approach geometry. Base choices can create persistent commitment flags: aisle traps, future swing blocking, and approach occlusion. Five splits are evaluated: \texttt{open\_room\_easy}, \texttt{narrow\_kitchen\_aisle}, \texttt{drawer\_door\_conflict}, \texttt{cluttered\_reach\_occlusion}, and \texttt{combined\_long\_horizon}.
+
+The full run contains 2,450 main rollout rows, 245 seed-level metric rows, 980 ablation rollout rows, and 1,260 stress-sweep rollout rows. Intervals are 95 percent confidence intervals over seed-level means.
+
+\section{Methods}
+The implemented methods are:
 \begin{itemize}
-\item Evidence is synthetic and generated from a shared batch template.
-\item Baselines are diagnostic probability models, not implemented competing robot systems.
-\item Ablations do not correspond to a trained model checkpoint.
-\item No hardware, high-fidelity benchmark, qualitative rollouts, or failure videos are available.
-\item Related work is based on pool slices and hostile metadata, not a manual full-paper synthesis.
-\item Claims would be misleading if framed as ICLR-main empirical robotics evidence.
+\item \texttt{greedy\_current\_reach}: chooses a pose for immediate reachability.
+\item \texttt{navigation\_then\_manipulation}: chooses navigation-feasible base poses before checking manipulation.
+\item \texttt{reachability\_margin\_sampler}: maximizes immediate reach and clearance margin.
+\item \texttt{receding\_horizon\_tamp}: replans after every object with a one-step lookahead.
+\item \texttt{commitment\_planner\_no\_future}: uses immediate commitment features without future reach-set loss.
+\item \texttt{commitment\_cost\_planner}: proposed method using future reach loss, corridor blocking, swing blocking, and reposition cost.
+\item \texttt{oracle\_sequence\_planner}: local upper-bound search heuristic.
 \end{itemize}
 
-\section{Hostile Prior-Work Pressure}
-The closest local hostile records include:
-\begin{itemize}
-\item Visually Grounded Task and Motion Planning for Mobile Manipulation (2022)
-\item Motion Planning and Cooperative Manipulation for Mobile Robots With Dual Arms (2022)
-\item Combined Task and Motion Planning for Mobile Manipulation (2010)
-\item Optimal Base Placement and Motion Planning for Mobile Manipulators (2012)
-\item Kinodynamic Motion Planning for Collaborative Object Transportation by Multiple Mobile Manipulators (2025)
-\end{itemize}
-These works make generic world models, uncertainty, model-based planning, and robot policy robustness crowded. Without real empirical evidence, the remaining novelty boundary is too weak for ICLR main.
+\section{Main Results}
+Table~\ref{tab:combined} shows the decisive combined long-horizon result. The commitment planner does not beat receding-horizon TAMP and does not reduce future regret.
 
-\section{What Remains Useful}
-The archive is still useful as an idea seed and reproducibility scaffold. The synthetic code, stress-test CSVs, reviewer attacks, and novelty-boundary docs can inform a future project. The correct next step is not more paper polishing; it is new evidence: implemented models, real baselines, manual related work, and robot or high-fidelity simulator validation.
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+Method & Success & Future regret & Repositions \\
+\midrule
+\texttt{greedy\_current\_reach} & $0.000 \pm 0.000$ & 1.000 & 1.757 \\
+\texttt{navigation\_then\_manipulation} & $0.000 \pm 0.000$ & 0.057 & 1.057 \\
+\texttt{reachability\_margin\_sampler} & $0.071 \pm 0.056$ & 0.929 & 2.257 \\
+\texttt{receding\_horizon\_tamp} & $0.100 \pm 0.074$ & 0.900 & 2.357 \\
+\texttt{commitment\_planner\_no\_future} & $0.100 \pm 0.074$ & 0.900 & 2.343 \\
+\texttt{commitment\_cost\_planner} & $0.100 \pm 0.074$ & 0.900 & 2.329 \\
+\texttt{oracle\_sequence\_planner} & $0.086 \pm 0.051$ & 0.914 & 2.329 \\
+\bottomrule
+\end{tabular}
+\caption{\texttt{combined\_long\_horizon} results. Future regret is the rate of failures caused by an earlier spatial commitment.}
+\label{tab:combined}
+\end{table}
 
-\section{Terminal Action}
-Decision: \textbf{KILL/ARCHIVE for ICLR main}. Do not submit this paper to ICLR main in the current form. Revival requires a substantially new empirical project.
+The paired success difference between \texttt{commitment\_cost\_planner} and \texttt{receding\_horizon\_tamp} is $0.000 \pm 0.000$. Future-regret difference is $0.000 \pm 0.000$. The proposed method is not empirically distinct from one-step TAMP.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\linewidth]{../figures/spatial_commitment_success.png}
+\caption{Combined long-horizon success. The commitment planner ties receding-horizon TAMP.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\linewidth]{../figures/spatial_commitment_regret.png}
+\caption{Future-regret rates. Explicit commitment costs do not reduce regret relative to TAMP or no-future commitment scoring.}
+\end{figure}
+
+\section{Ablations}
+Ablations fail to support the mechanism. On \texttt{combined\_long\_horizon}, the full method, no-future reach loss, no-corridor term, no-swing term, no-reposition term, and one-step-only variant all reach 0.100 success and 0.900 future regret. The only clearly worse ablation is random immediate feasible selection, which reaches 0.000 success. This means the claimed future commitment terms are not shown to be necessary.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\linewidth]{../figures/spatial_commitment_ablation.png}
+\caption{Ablations. The full method is indistinguishable from no-future and one-step variants.}
+\end{figure}
+
+\section{Stress Sweep}
+Stress sweeps vary aisle width, clutter density, future ambiguity, and swing radius. At stress level 1.0, every evaluated planner reaches 0.000 success and 1.000 future regret. The proposed method does not provide a robust tail-safety advantage.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\linewidth]{../figures/spatial_commitment_stress_sweep.png}
+\caption{Commitment stress sweep. All planners collapse at maximum stress.}
+\end{figure}
+
+\section{Related Work Pressure}
+Mobile manipulation already has strong task-and-motion planning, base placement, whole-body planning, and kinodynamic planning literatures \citep{prior1,prior3,prior4,prior6,prior7,prior8}. A new spatial-commitment paper must show a clear advantage over TAMP or optimal base-placement baselines. The local evidence does not.
+
+\section{Limitations}
+This rebuild is local and diagnostic. It lacks real robot validation, recognized high-fidelity benchmark evaluation, learned models, and external TAMP integrations. Those limitations would matter even if the method won. Because the method does not beat the local baselines, the archive decision is stronger.
+
+\section{Conclusion}
+Paper 79 should not be submitted to ICLR main. The v4 rebuild provides implemented evidence, but the evidence is negative: explicit spatial commitment costs do not improve over receding-horizon TAMP and do not survive ablation. The correct terminal state is \textbf{KILL/ARCHIVE}.
+
+\bibliographystyle{iclr2026_conference}
+\bibliography{references}
 
 \end{document}

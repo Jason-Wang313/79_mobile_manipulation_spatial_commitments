@@ -1,4 +1,13 @@
-case,expected_behavior,observed_success,lesson
-unmodeled_hardware_damage,planner abstains or requests human inspection,0.18,branch semantics cannot repair missing actuation
-semantic_goal_ambiguity,diagnostic physical probes do not solve language ambiguity,0.31,needs a separate instruction-grounding loop
-adversarial_sensor_dropout,tail-risk objective becomes conservative,0.39,sensor-health modeling is out of scope
+split,seed,episode_id,method,failure_label,task_success_rate,future_regret,reposition_count,lesson
+combined_long_horizon,0,0,greedy_current_reach,no_feasible_base_pose,0.50000,1,2,future spatial commitments eliminated all feasible later base poses
+combined_long_horizon,0,0,navigation_then_manipulation,approach_cone,0.25000,0,1,negative case retained for audit
+combined_long_horizon,0,0,reachability_margin_sampler,no_feasible_base_pose,0.50000,1,2,future spatial commitments eliminated all feasible later base poses
+combined_long_horizon,0,0,oracle_sequence_planner,no_feasible_base_pose,0.50000,1,2,future spatial commitments eliminated all feasible later base poses
+combined_long_horizon,0,1,navigation_then_manipulation,arm_approach_collision,0.25000,0,1,base path was feasible but arm approach was blocked
+combined_long_horizon,0,1,receding_horizon_tamp,no_feasible_base_pose,0.25000,1,1,future spatial commitments eliminated all feasible later base poses
+combined_long_horizon,0,1,commitment_planner_no_future,no_feasible_base_pose,0.25000,1,1,future spatial commitments eliminated all feasible later base poses
+combined_long_horizon,0,4,navigation_then_manipulation,swing_block,0.50000,1,2,base pose or carried footprint blocked a later drawer or door swing
+combined_long_horizon,0,1,commitment_cost_planner,no_feasible_base_pose,0.25000,1,1,future spatial commitments eliminated all feasible later base poses
+drawer_door_conflict,0,0,navigation_then_manipulation,swing_block,0.33333,1,0,base pose or carried footprint blocked a later drawer or door swing
+drawer_door_conflict,0,0,receding_horizon_tamp,no_feasible_base_pose,0.33333,1,0,future spatial commitments eliminated all feasible later base poses
+drawer_door_conflict,0,1,greedy_current_reach,no_feasible_base_pose,0.33333,1,1,future spatial commitments eliminated all feasible later base poses

@@ -1,16 +1,34 @@
-Submission-hardening experiment for paper 79 mobile_manipulation_spatial_commitments
-Seven seeds, 600 episodes per seed, strong baselines, ablations, stress sweep, and negative cases.
-observed_only_behavior_clone hidden_mode_shift mean_success=0.4193 ci95=0.0104 tail=0.5807
-observed_only_behavior_clone combined_stress mean_success=0.3217 ci95=0.0169 tail=0.6783
-data_augmentation_wam hidden_mode_shift mean_success=0.4891 ci95=0.0142 tail=0.5109
-data_augmentation_wam combined_stress mean_success=0.4133 ci95=0.0159 tail=0.5867
-scalar_uncertainty_planner hidden_mode_shift mean_success=0.5569 ci95=0.0115 tail=0.4431
-scalar_uncertainty_planner combined_stress mean_success=0.5136 ci95=0.0152 tail=0.4864
-ensemble_disagreement_planner hidden_mode_shift mean_success=0.5974 ci95=0.0155 tail=0.4026
-ensemble_disagreement_planner combined_stress mean_success=0.5488 ci95=0.0095 tail=0.4512
-conformal_risk_filter hidden_mode_shift mean_success=0.6143 ci95=0.0134 tail=0.3857
-conformal_risk_filter combined_stress mean_success=0.5638 ci95=0.0208 tail=0.4362
-proposed_branch_mechanism hidden_mode_shift mean_success=0.6795 ci95=0.0103 tail=0.3205
-proposed_branch_mechanism combined_stress mean_success=0.6543 ci95=0.0156 tail=0.3457
-oracle_branch_upper_bound hidden_mode_shift mean_success=0.7557 ci95=0.0101 tail=0.2443
-oracle_branch_upper_bound combined_stress mean_success=0.7438 ci95=0.0137 tail=0.2562
+Paper 79 mobile_manipulation_spatial_commitments geometry rebuild
+Terminal recommendation: KILL_ARCHIVE
+Reason: commitment planner combined success=0.100, receding TAMP=0.100, reachability margin=0.071, oracle=0.086; paired success diff vs TAMP=0.00000 and future-regret diff=0.00000.
+Main rollout rows: 2450
+Seeds: [0, 1, 2, 3, 4, 5, 6]
+
+Combined long-horizon summary:
+greedy_current_reach success=0.00000 ci95=0.00000 future_regret=1.00000 reposition=1.75714
+navigation_then_manipulation success=0.00000 ci95=0.00000 future_regret=0.05714 reposition=1.05714
+reachability_margin_sampler success=0.07143 ci95=0.05600 future_regret=0.92857 reposition=2.25714
+receding_horizon_tamp success=0.10000 ci95=0.07408 future_regret=0.90000 reposition=2.35714
+commitment_planner_no_future success=0.10000 ci95=0.07408 future_regret=0.90000 reposition=2.34286
+commitment_cost_planner success=0.10000 ci95=0.07408 future_regret=0.90000 reposition=2.32857
+oracle_sequence_planner success=0.08571 ci95=0.05112 future_regret=0.91429 reposition=2.32857
+
+Pairwise combined success:
+vs receding_horizon_tamp mean_diff=0.00000 ci95=0.00000
+vs reachability_margin_sampler mean_diff=0.02857 ci95=0.03615
+
+Ablation combined_long_horizon:
+commitment_full success=0.10000 ci95=0.07408 future_regret=0.90000
+no_future_reach_loss success=0.10000 ci95=0.07408 future_regret=0.90000
+no_corridor_term success=0.10000 ci95=0.07408 future_regret=0.90000
+no_swing_term success=0.10000 ci95=0.07408 future_regret=0.90000
+no_reposition_term success=0.10000 ci95=0.07408 future_regret=0.90000
+one_step_only success=0.10000 ci95=0.07408 future_regret=0.90000
+random_immediate_feasible success=0.00000 ci95=0.00000 future_regret=1.00000
+
+Stress level 1.0:
+reachability_margin_sampler success=0.00000 ci95=0.00000 future_regret=1.00000
+receding_horizon_tamp success=0.00000 ci95=0.00000 future_regret=1.00000
+commitment_planner_no_future success=0.00000 ci95=0.00000 future_regret=1.00000
+commitment_cost_planner success=0.00000 ci95=0.00000 future_regret=1.00000
+oracle_sequence_planner success=0.00000 ci95=0.00000 future_regret=1.00000
