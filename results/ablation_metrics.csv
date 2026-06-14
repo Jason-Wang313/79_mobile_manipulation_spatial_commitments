@@ -1,6 +1,15 @@
-ablation,combined_stress_mean_success,ci95_success,interpretation
-full_proposed_branch_mechanism,0.6743,0.0191,all components
-minus_branch_atlas,0.5483,0.0144,removes explicit unrealized futures
-minus_tail_risk_objective,0.5845,0.0217,uses mean predicted value only
-minus_diagnostic_probe,0.5852,0.0197,does not actively test ambiguous physical modes
-minus_failure_memory,0.6133,0.0128,does not reuse repaired beliefs
+split,ablation,success,ci95,future_regret,rows
+combined_long_horizon,commitment_full,0.10000,0.07408,0.90000,70
+combined_long_horizon,no_future_reach_loss,0.10000,0.07408,0.90000,70
+combined_long_horizon,no_corridor_term,0.10000,0.07408,0.90000,70
+combined_long_horizon,no_swing_term,0.10000,0.07408,0.90000,70
+combined_long_horizon,no_reposition_term,0.10000,0.07408,0.90000,70
+combined_long_horizon,one_step_only,0.10000,0.07408,0.90000,70
+combined_long_horizon,random_immediate_feasible,0.00000,0.00000,1.00000,70
+drawer_door_conflict,commitment_full,0.31429,0.13812,0.68571,70
+drawer_door_conflict,no_future_reach_loss,0.30000,0.12097,0.70000,70
+drawer_door_conflict,no_corridor_term,0.31429,0.13812,0.68571,70
+drawer_door_conflict,no_swing_term,0.31429,0.13812,0.68571,70
+drawer_door_conflict,no_reposition_term,0.31429,0.13812,0.68571,70
+drawer_door_conflict,one_step_only,0.31429,0.13133,0.68571,70
+drawer_door_conflict,random_immediate_feasible,0.31429,0.14459,0.68571,70

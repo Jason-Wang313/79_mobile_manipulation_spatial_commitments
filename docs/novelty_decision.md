@@ -1,7 +1,9 @@
 # Novelty Decision
 
-Chosen thesis: Mobile Manipulation Spatial Commitments turns the seed bet into a mechanism: Account for spatial commitments that make future manipulation harder after base motion.
+Chosen thesis: explicit spatial-commitment costs should help mobile manipulators avoid base placements that damage future manipulation feasibility.
 
-New central mechanism: Mobile manipulation spatial commitments keeps action-critical alternatives explicit until a physical observation collapses them.
+Implemented novelty test: a local geometry benchmark with narrow aisles, drawer/door swing conflicts, cluttered approach occlusion, long-horizon task sequences, and stress sweeps.
 
-Decision: proceed as a revise/workshop-strength ICLR-style draft with synthetic but runnable evidence.
+Decision: KILL_ARCHIVE.
+
+Reason: the mechanism is not empirically distinct from receding-horizon TAMP or no-future variants. The novelty boundary collapses to ordinary replanning and reachability scoring under the local evidence.
