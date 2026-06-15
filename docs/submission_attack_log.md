@@ -192,3 +192,10 @@ Attack: No meaningful recoverable ICLR-main issue remains after archiving.
 Verdict: Terminal condition reached.
 
 Action: Mark KILL_ARCHIVE and stop.
+
+## 2026-06-15 Continuation Gate
+Attack: The v4 negative decision might be stale unless the code, data, PDF, and public artifact state are rechecked.
+
+Verdict: Rechecked. The evidence remains terminal and negative.
+
+Action: Keep KILL_ARCHIVE. `commitment_cost_planner` ties `receding_horizon_tamp` at 0.100 +/- 0.074 success on `combined_long_horizon`, has 0.00000 paired success and future-regret differences, loses mechanism support because the no-future and one-step ablations are indistinguishable from the full method, and collapses with every evaluated planner to 0.000 success at maximum stress. The cleaned PDF is in Downloads only and the Desktop copy is absent.
