@@ -22,3 +22,16 @@ The hostile reviewer would still reject this as an ICLR main submission, now wit
 ## Honest Action
 
 The paper remains `KILL_ARCHIVE`. The repository should be retained as a negative diagnostic, not reframed as an ICLR-main algorithm paper.
+
+## 2026-06-15 Continuation Response
+
+The continuation audit strengthens the hostile-reviewer conclusion rather than weakening it. The proposed method still has no decisive empirical separation from receding-horizon TAMP:
+
+- `commitment_cost_planner`: 0.100 +/- 0.074 combined long-horizon success.
+- `receding_horizon_tamp`: 0.100 +/- 0.074 combined long-horizon success.
+- Paired success difference: 0.00000 +/- 0.00000.
+- Paired future-regret difference: 0.00000 +/- 0.00000.
+- Full, no-future, no-corridor, no-swing, no-reposition, and one-step ablations all reach 0.100 success and 0.900 future regret.
+- At maximum stress, every evaluated planner reaches 0.000 success and 1.000 future regret.
+
+The only honest response is to archive the paper as a reproducible failed mechanism test.

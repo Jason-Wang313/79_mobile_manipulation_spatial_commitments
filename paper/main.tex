@@ -40,7 +40,7 @@ The implemented methods are:
 \section{Main Results}
 Table~\ref{tab:combined} shows the decisive combined long-horizon result. The commitment planner does not beat receding-horizon TAMP and does not reduce future regret.
 
-\begin{table}[h]
+\begin{table}[tbp]
 \centering
 \scriptsize
 \setlength{\tabcolsep}{4pt}
@@ -63,13 +63,13 @@ Method & Success & Future regret & Repositions \\
 
 The paired success difference between \texttt{commitment\_cost\_planner} and \texttt{receding\_horizon\_tamp} is $0.000 \pm 0.000$. Future-regret difference is $0.000 \pm 0.000$. The proposed method is not empirically distinct from one-step TAMP.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=0.95\linewidth]{../figures/spatial_commitment_success.png}
 \caption{Combined long-horizon success. The commitment planner ties receding-horizon TAMP.}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=0.95\linewidth]{../figures/spatial_commitment_regret.png}
 \caption{Future-regret rates. Explicit commitment costs do not reduce regret relative to TAMP or no-future commitment scoring.}
@@ -78,7 +78,7 @@ The paired success difference between \texttt{commitment\_cost\_planner} and \te
 \section{Ablations}
 Ablations fail to support the mechanism. On \texttt{combined\_long\_horizon}, the full method, no-future reach loss, no-corridor term, no-swing term, no-reposition term, and one-step-only variant all reach 0.100 success and 0.900 future regret. The only clearly worse ablation is random immediate feasible selection, which reaches 0.000 success. This means the claimed future commitment terms are not shown to be necessary.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=0.95\linewidth]{../figures/spatial_commitment_ablation.png}
 \caption{Ablations. The full method is indistinguishable from no-future and one-step variants.}
@@ -87,7 +87,7 @@ Ablations fail to support the mechanism. On \texttt{combined\_long\_horizon}, th
 \section{Stress Sweep}
 Stress sweeps vary aisle width, clutter density, future ambiguity, and swing radius. At stress level 1.0, every evaluated planner reaches 0.000 success and 1.000 future regret. The proposed method does not provide a robust tail-safety advantage.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=0.95\linewidth]{../figures/spatial_commitment_stress_sweep.png}
 \caption{Commitment stress sweep. All planners collapse at maximum stress.}
