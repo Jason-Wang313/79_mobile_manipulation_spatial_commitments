@@ -199,3 +199,10 @@ Attack: The v4 negative decision might be stale unless the code, data, PDF, and 
 Verdict: Rechecked. The evidence remains terminal and negative.
 
 Action: Keep KILL_ARCHIVE. `commitment_cost_planner` ties `receding_horizon_tamp` at 0.100 +/- 0.074 success on `combined_long_horizon`, has 0.00000 paired success and future-regret differences, loses mechanism support because the no-future and one-step ablations are indistinguishable from the full method, and collapses with every evaluated planner to 0.000 success at maximum stress. The cleaned PDF is in Downloads only and the Desktop copy is absent.
+
+## 2026-06-21 Expanded v5 Gate
+Attack: The paper might become ICLR-main viable if rebuilt at much larger scale with stronger sequence-search baselines, fixed-risk evidence, and real appendices.
+
+Verdict: Rebuilt and still terminal. The expanded evidence is stronger but negative.
+
+Action: Keep KILL_ARCHIVE. `spatial_commitment_tree_search_v5` ties `receding_horizon_tamp`, `robust_backtracking_tamp`, and the exact oracle at 0.000 +/- 0.000 success on `combined_long_horizon`; ties robust backtracking and oracle at 0.396 +/- 0.005 hard-regime aggregate success; fails fixed-risk and maximum-stress gates; and fails ablation necessity. The validated 68-page PDF is in Downloads only, SHA256 `858EF0AD1A929071167AF5781397AFFA2F727DE59D3C70FFDCE454CB5B244ED8`, with no Desktop copy.

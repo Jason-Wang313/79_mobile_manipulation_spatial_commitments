@@ -1,13 +1,15 @@
 # Child Status 79
 
-Current stage: 2026-06-15 continuation audit terminal
-Last update: 2026-06-15 08:02:02 +0100
+Current stage: 2026-06-21 expanded-standard v5 terminal audit complete
+Last update: 2026-06-21 19:49:56 +08:00
 PDF: C:/Users/wangz/Downloads/79.pdf
 GitHub: https://github.com/Jason-Wang313/79_mobile_manipulation_spatial_commitments
-Submission-hardening version: v4
+Submission-hardening version: v5 expanded
 Terminal decision: KILL_ARCHIVE
 ICLR main ready: no
 
-Evidence summary: v4 implemented a mobile-manipulation spatial-commitment geometry benchmark. The commitment planner tied receding-horizon TAMP on combined long-horizon success and did not reduce future regret.
+Evidence summary: v5 implements a CPU-only, RAM-light mobile-manipulation spatial-commitment benchmark with eight seeds, seven geometry splits, eleven planners, hard-regime aggregates, component ablations, stress sweeps, fixed-risk budgets, 12 curated negative cases, a generated 68-page ICLR-style manuscript, bright boxed clickable citations, and Downloads-only PDF validation.
 
-Continuation audit: the 2026-06-15 plan-first pass rechecked code compilation, CSV integrity, seed coverage, baselines, pairwise statistics, ablations, stress sweep, BibTeX/PDF logs, Downloads-only PDF placement, Desktop exclusion, and public GitHub state. The terminal decision remains KILL_ARCHIVE because `commitment_cost_planner` ties `receding_horizon_tamp` at 0.100 +/- 0.074 success on `combined_long_horizon`, has paired success and future-regret differences of 0.00000, is indistinguishable from no-future and one-step ablations, and all evaluated planners collapse to 0.000 success at maximum stress.
+Terminal reason: `spatial_commitment_tree_search_v5` has `0.000 +/- 0.000` success on `combined_long_horizon`, tying `receding_horizon_tamp` and `robust_backtracking_tamp`. On the hard-regime aggregate, v5 reaches `0.396 +/- 0.005`, tying `robust_backtracking_tamp` and `exact_sequence_oracle`. It fails the hard-margin, paired-lower-bound, future-regret, max-stress, fixed-risk, and ablation-necessity gates.
+
+Artifact validation: `python scripts/validate_submission_artifacts.py` passed. `C:/Users/wangz/Downloads/79.pdf` has 68 pages and SHA256 `858EF0AD1A929071167AF5781397AFFA2F727DE59D3C70FFDCE454CB5B244ED8`. `C:/Users/wangz/Desktop/79.pdf` is absent. Visual PDF QA inspected title/citation boxes, figures, dense appendix tables, fixed-risk tables, and references without clipping or unreadable rendering.

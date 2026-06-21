@@ -1,351 +1,673 @@
-split,seed,episode_id,objects,zones,obstacles,aisle_width,clutter_density,future_ambiguity,description
-open_room_easy,0,0,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,0,1,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,0,2,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,0,3,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,0,4,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,0,5,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,0,6,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,0,7,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,0,8,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,0,9,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,1,0,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,1,1,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,1,2,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,1,3,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,1,4,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,1,5,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,1,6,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,1,7,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,1,8,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,1,9,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,2,0,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,2,1,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,2,2,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,2,3,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,2,4,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,2,5,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,2,6,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,2,7,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,2,8,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,2,9,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,3,0,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,3,1,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,3,2,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,3,3,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,3,4,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,3,5,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,3,6,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,3,7,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,3,8,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,3,9,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,4,0,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,4,1,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,4,2,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,4,3,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,4,4,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,4,5,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,4,6,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,4,7,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,4,8,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,4,9,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,5,0,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,5,1,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,5,2,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,5,3,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,5,4,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,5,5,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,5,6,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,5,7,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,5,8,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,5,9,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,6,0,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,6,1,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,6,2,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,6,3,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,6,4,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,6,5,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,6,6,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,6,7,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,6,8,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-open_room_easy,6,9,cup;bowl;bin,open;open;open,0,1.20000,0.00000,0.00000,open room with weak spatial commitments
-narrow_kitchen_aisle,0,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69290,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,0,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.59576,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,0,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.57706,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,0,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.54996,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,0,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.54016,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,0,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.57344,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,0,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.57327,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,0,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65666,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,0,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66935,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,0,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.64375,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,1,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.59106,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,1,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62633,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,1,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.55314,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,1,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.55631,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,1,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.67278,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,1,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62445,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,1,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.67989,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,1,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60063,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,1,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.56655,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,1,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60368,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,2,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65153,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,2,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69311,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,2,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.58667,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,2,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.64031,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,2,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62882,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,2,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.57886,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,2,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.61699,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,2,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.55604,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,2,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60894,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,2,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62207,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,3,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.58923,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,3,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.64103,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,3,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68966,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,3,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.55081,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,3,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65425,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,3,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60530,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,3,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.55240,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,3,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68252,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,3,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.55165,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,3,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65567,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,4,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68956,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,4,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.58785,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,4,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.61212,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,4,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.54967,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,4,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.56522,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,4,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.55391,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,4,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.64476,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,4,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60941,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,4,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.54067,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,4,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62554,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,5,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66405,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,5,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65308,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,5,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.59749,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,5,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65193,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,5,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.56659,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,5,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.55682,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,5,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.59026,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,5,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66824,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,5,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65377,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,5,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.59776,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,6,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62439,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,6,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66036,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,6,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.55841,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,6,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.56413,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,6,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.64005,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,6,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69462,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,6,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62998,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,6,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.64778,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,6,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69663,0.00000,0.00000,deep aisle poses trap later outside manipulation
-narrow_kitchen_aisle,6,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65714,0.00000,0.00000,deep aisle poses trap later outside manipulation
-drawer_door_conflict,0,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,0,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,0,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,0,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,0,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,0,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,0,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,0,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,0,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,0,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,1,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,1,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,1,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,1,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,1,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,1,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,1,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,1,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,1,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,1,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,2,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,2,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,2,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,2,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,2,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,2,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,2,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,2,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,2,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,2,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,3,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,3,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,3,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,3,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,3,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,3,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,3,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,3,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,3,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,3,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,4,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,4,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,4,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,4,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,4,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,4,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,4,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,4,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,4,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,4,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,5,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,5,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,5,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,5,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,5,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,5,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,5,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,5,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,5,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,5,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,6,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,6,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,6,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,6,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,6,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,6,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,6,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,6,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,6,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-drawer_door_conflict,6,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.20000,0.00000,0.00000,early base pose can block later drawer swing
-cluttered_reach_occlusion,0,0,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.82777,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,0,1,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.78544,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,0,2,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.82770,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,0,3,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.65555,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,0,4,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.59195,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,0,5,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.61772,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,0,6,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.84527,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,0,7,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.81348,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,0,8,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.54196,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,0,9,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.20000,0.45435,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,1,0,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.59813,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,1,1,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.66177,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,1,2,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.70441,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,1,3,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.20000,0.47621,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,1,4,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.50014,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,1,5,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.59467,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,1,6,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.64664,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,1,7,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.51197,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,1,8,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.72738,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,1,9,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.65140,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,2,0,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.75928,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,2,1,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.75161,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,2,2,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.20000,0.45489,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,2,3,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.59757,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,2,4,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.66885,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,2,5,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.66980,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,2,6,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.57158,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,2,7,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.77800,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,2,8,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.50805,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,2,9,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.75207,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,3,0,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.57115,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,3,1,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.79946,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,3,2,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.20000,0.45753,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,3,3,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.57382,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,3,4,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.51078,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,3,5,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.20000,0.49193,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,3,6,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.64748,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,3,7,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.62630,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,3,8,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.82216,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,3,9,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.84615,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,4,0,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.76555,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,4,1,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.77958,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,4,2,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.80912,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,4,3,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.60912,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,4,4,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.76054,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,4,5,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.51364,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,4,6,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.58379,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,4,7,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.61687,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,4,8,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.56712,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,4,9,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.72851,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,5,0,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.20000,0.47164,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,5,1,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.54769,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,5,2,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.80954,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,5,3,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.66681,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,5,4,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.20000,0.45185,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,5,5,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.52381,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,5,6,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.58949,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,5,7,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.63507,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,5,8,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.20000,0.47342,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,5,9,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.54647,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,6,0,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.55422,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,6,1,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.70805,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,6,2,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.64507,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,6,3,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.84009,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,6,4,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.20000,0.46352,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,6,5,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.84953,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,6,6,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.50370,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,6,7,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.50891,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,6,8,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.20000,0.55358,0.00000,front commitments occlude later back-object approach
-cluttered_reach_occlusion,6,9,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.20000,0.71383,0.00000,front commitments occlude later back-object approach
-combined_long_horizon,0,0,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.64111,0.35856,0.26825,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,0,1,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,10,0.62539,0.71313,0.35702,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,0,2,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.55797,0.48688,0.40272,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,0,3,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.60335,0.37717,0.27091,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,0,4,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.61961,0.48165,0.42028,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,0,5,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.60159,0.46450,0.41143,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,0,6,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.66580,0.41062,0.17271,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,0,7,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.58368,0.67419,0.15704,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,0,8,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.63461,0.63511,0.19816,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,0,9,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.66428,0.67919,0.41075,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,1,0,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.67983,0.62275,0.30603,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,1,1,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.52144,0.41071,0.32714,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,1,2,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,10,0.61746,0.72388,0.21565,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,1,3,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.65280,0.61790,0.34450,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,1,4,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.54662,0.59777,0.36311,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,1,5,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.53305,0.39707,0.33656,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,1,6,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.59098,0.65841,0.32712,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,1,7,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.60386,0.56685,0.27524,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,1,8,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.55887,0.49559,0.41306,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,1,9,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.61223,0.58170,0.18017,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,2,0,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.54923,0.54241,0.33203,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,2,1,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.54054,0.69553,0.18545,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,2,2,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,10,0.67309,0.70980,0.23719,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,2,3,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.54786,0.51127,0.23494,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,2,4,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.64739,0.51189,0.37346,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,2,5,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.53880,0.39062,0.17652,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,2,6,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.59210,0.60292,0.44454,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,2,7,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.64714,0.43577,0.33751,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,2,8,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.60837,0.56079,0.23266,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,2,9,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.61174,0.53318,0.32892,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,3,0,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.64762,0.62120,0.31276,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,3,1,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.53218,0.61170,0.31707,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,3,2,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.67758,0.40670,0.23315,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,3,3,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,10,0.61294,0.71876,0.23351,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,3,4,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.65807,0.68291,0.28300,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,3,5,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.65814,0.62537,0.33255,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,3,6,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.60762,0.41885,0.43982,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,3,7,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.67546,0.69374,0.17527,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,3,8,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.52971,0.60175,0.25498,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,3,9,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.61441,0.42097,0.24734,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,4,0,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.52296,0.58205,0.43048,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,4,1,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.52114,0.57452,0.16654,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,4,2,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.59436,0.57826,0.30632,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,4,3,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.53893,0.37213,0.40160,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,4,4,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.64451,0.47297,0.20992,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,4,5,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.65421,0.57299,0.37114,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,4,6,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,10,0.65935,0.74082,0.35790,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,4,7,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.56022,0.37288,0.15542,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,4,8,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.67720,0.64677,0.39691,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,4,9,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.62585,0.65998,0.16078,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,5,0,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.52330,0.50024,0.20844,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,5,1,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,10,0.65130,0.71533,0.26915,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,5,2,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.60111,0.68219,0.23405,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,5,3,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.58245,0.55812,0.17345,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,5,4,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.67477,0.63602,0.21421,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,5,5,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.63472,0.53072,0.42160,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,5,6,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.52128,0.39443,0.21173,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,5,7,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.52893,0.49475,0.37861,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,5,8,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,10,0.57022,0.74798,0.26616,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,5,9,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.66777,0.38586,0.23226,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,6,0,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,10,0.60906,0.70851,0.25724,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,6,1,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,10,0.65416,0.70802,0.32321,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,6,2,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.64241,0.36366,0.20310,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,6,3,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.60209,0.42142,0.41309,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,6,4,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.54300,0.37769,0.17105,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,6,5,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.55906,0.57063,0.34054,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,6,6,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.66098,0.60757,0.34748,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,6,7,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.55523,0.56418,0.36643,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,6,8,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,8,0.63953,0.42813,0.23585,"aisle, swing, clutter, and long-horizon commitments"
-combined_long_horizon,6,9,aisle_handle;counter_pick;drawer_pull;back_item,aisle;counter;drawer;clutter_back,9,0.58380,0.56795,0.35443,"aisle, swing, clutter, and long-horizon commitments"
+split,seed,episode_id,objects,zones,obstacles,aisle_width,clutter_density,future_ambiguity,relocation_pressure,description
+open_room_easy,0,0,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,0,1,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,0,2,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,0,3,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,0,4,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,0,5,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,0,6,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,0,7,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,0,8,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,0,9,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,0,10,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,0,11,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,0,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,1,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,2,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,3,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,4,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,5,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,6,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,7,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,8,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,9,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,10,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,1,11,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,0,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,1,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,2,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,3,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,4,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,5,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,6,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,7,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,8,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,9,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,10,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,2,11,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,0,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,1,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,2,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,3,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,4,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,5,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,6,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,7,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,8,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,9,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,10,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,3,11,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,0,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,1,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,2,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,3,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,4,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,5,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,6,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,7,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,8,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,9,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,10,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,4,11,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,0,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,1,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,2,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,3,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,4,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,5,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,6,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,7,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,8,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,9,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,10,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,5,11,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,0,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,1,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,2,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,3,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,4,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,5,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,6,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,7,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,8,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,9,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,10,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,6,11,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,0,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,1,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,2,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,3,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,4,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,5,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,6,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,7,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,8,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,9,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,10,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+open_room_easy,7,11,cup;bowl;bin,open;open;open,0,1.18000,0.00000,0.00000,0.00000,open room with weak spatial commitments
+narrow_aisle_commitment,0,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65632,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,0,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.59196,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,0,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66953,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,0,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.59505,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,0,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62812,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,0,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.70282,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,0,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.67106,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,0,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.67191,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,0,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.58404,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,0,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69581,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,0,10,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.71170,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,0,11,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68699,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69310,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68869,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65466,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66784,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60847,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.61864,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65262,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.70925,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66082,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66229,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,10,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.61713,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,1,11,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62192,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60934,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69528,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68566,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.67302,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69158,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.61021,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.70121,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68697,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60411,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66098,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,10,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62709,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,2,11,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66602,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66198,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.64289,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.71802,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60226,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.71746,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65748,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.61955,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69842,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.63477,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68912,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,10,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.70320,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,3,11,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.58607,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66559,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68985,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62935,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.61959,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.64761,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69675,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68537,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69431,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65361,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.58091,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,10,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62161,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,4,11,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68532,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68533,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68266,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66715,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60045,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.71465,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.70650,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68598,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.67873,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60833,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62400,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,10,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68723,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,5,11,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68669,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.63054,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.71427,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68271,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65197,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.60514,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62671,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.59047,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.61016,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65437,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.64113,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,10,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68296,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,6,11,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.70830,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,0,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.69463,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,1,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.59644,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,2,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.71605,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,3,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68852,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,4,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.70426,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,5,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.65662,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,6,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.71941,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,7,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.68192,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,8,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.66501,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,9,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.64269,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,10,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.62999,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+narrow_aisle_commitment,7,11,aisle_handle;outside_tray;side_shelf,aisle;outside;outside,2,0.64314,0.00000,0.00000,0.00000,deep aisle base choices trap later outside manipulation
+drawer_swing_deadlock,0,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,0,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,0,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,0,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,0,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,0,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,0,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,0,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,0,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,0,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,0,10,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,0,11,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,10,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,1,11,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,10,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,2,11,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,10,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,3,11,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,10,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,4,11,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,10,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,5,11,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,10,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,6,11,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,0,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,1,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,2,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,3,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,4,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,5,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,6,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,7,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,8,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,9,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,10,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+drawer_swing_deadlock,7,11,counter_pick;drawer_pull;side_bin,counter;drawer;counter,2,1.18000,0.00000,0.00000,0.00000,current pose can block a later drawer swing
+clutter_occlusion_reach,0,0,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.69124,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,0,1,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.63452,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,0,2,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.71558,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,0,3,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.60487,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,0,4,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.58412,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,0,5,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.18000,0.48924,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,0,6,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.53059,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,0,7,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.18000,0.48518,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,0,8,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.68570,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,0,9,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.55746,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,0,10,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.64008,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,0,11,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.81029,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,0,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.81591,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,1,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.85903,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,2,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.64653,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,3,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.76189,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,4,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.70495,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,5,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.70470,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,6,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.71075,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,7,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.18000,0.48039,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,8,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.50109,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,9,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.76995,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,10,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.59413,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,1,11,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.62879,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,0,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.76426,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,1,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.51439,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,2,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.18000,0.48851,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,3,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.83798,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,4,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.67473,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,5,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.78407,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,6,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.84228,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,7,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.74699,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,8,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.18000,0.48289,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,9,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.82177,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,10,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.67599,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,2,11,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.56932,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,0,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.62605,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,1,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.80556,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,2,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.61786,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,3,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.77610,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,4,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.59731,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,5,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.82995,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,6,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.77507,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,7,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.18000,0.48645,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,8,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.52472,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,9,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.83819,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,10,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.79128,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,3,11,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.52699,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,0,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.67960,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,1,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.18000,0.48384,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,2,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.51802,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,3,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.82484,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,4,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.82746,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,5,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.79072,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,6,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.82684,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,7,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.51175,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,8,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.79564,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,9,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.64841,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,10,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.75914,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,4,11,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.85684,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,0,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.64111,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,1,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.62436,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,2,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.18000,0.48278,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,3,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.68068,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,4,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.18000,0.49587,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,5,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.18000,0.48929,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,6,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.62970,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,7,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.69924,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,8,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.81927,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,9,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.74546,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,10,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.79976,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,5,11,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.64409,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,0,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.61247,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,1,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.57966,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,2,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.76894,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,3,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.57818,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,4,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.84847,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,5,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.54181,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,6,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.78866,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,7,front_item;back_item;side_item,clutter_front;clutter_back;side,4,1.18000,0.48808,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,8,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.82328,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,9,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.66567,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,10,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.56218,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,6,11,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.63405,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,0,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.51919,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,1,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.73740,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,2,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.84190,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,3,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.71606,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,4,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.83201,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,5,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.73358,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,6,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.82173,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,7,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.83474,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,8,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.55255,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,9,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.57304,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,10,front_item;back_item;side_item,clutter_front;clutter_back;side,6,1.18000,0.85435,0.00000,0.00000,early pose can occlude the later back-object approach cone
+clutter_occlusion_reach,7,11,front_item;back_item;side_item,clutter_front;clutter_back;side,5,1.18000,0.67298,0.00000,0.00000,early pose can occlude the later back-object approach cone
+relocation_sequence,0,0,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.47080,staging choices can block later relocation and drawer access
+relocation_sequence,0,1,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.63594,staging choices can block later relocation and drawer access
+relocation_sequence,0,2,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.73521,staging choices can block later relocation and drawer access
+relocation_sequence,0,3,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.67011,staging choices can block later relocation and drawer access
+relocation_sequence,0,4,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.67323,staging choices can block later relocation and drawer access
+relocation_sequence,0,5,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.61125,staging choices can block later relocation and drawer access
+relocation_sequence,0,6,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.69638,staging choices can block later relocation and drawer access
+relocation_sequence,0,7,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.49835,staging choices can block later relocation and drawer access
+relocation_sequence,0,8,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.69663,staging choices can block later relocation and drawer access
+relocation_sequence,0,9,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.67939,staging choices can block later relocation and drawer access
+relocation_sequence,0,10,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.75554,staging choices can block later relocation and drawer access
+relocation_sequence,0,11,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.50696,staging choices can block later relocation and drawer access
+relocation_sequence,1,0,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.48391,staging choices can block later relocation and drawer access
+relocation_sequence,1,1,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.57337,staging choices can block later relocation and drawer access
+relocation_sequence,1,2,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.74256,staging choices can block later relocation and drawer access
+relocation_sequence,1,3,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.48096,staging choices can block later relocation and drawer access
+relocation_sequence,1,4,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.64654,staging choices can block later relocation and drawer access
+relocation_sequence,1,5,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.81003,staging choices can block later relocation and drawer access
+relocation_sequence,1,6,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.68048,staging choices can block later relocation and drawer access
+relocation_sequence,1,7,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.49349,staging choices can block later relocation and drawer access
+relocation_sequence,1,8,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.81784,staging choices can block later relocation and drawer access
+relocation_sequence,1,9,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.53637,staging choices can block later relocation and drawer access
+relocation_sequence,1,10,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.51337,staging choices can block later relocation and drawer access
+relocation_sequence,1,11,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.63453,staging choices can block later relocation and drawer access
+relocation_sequence,2,0,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.80710,staging choices can block later relocation and drawer access
+relocation_sequence,2,1,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.70944,staging choices can block later relocation and drawer access
+relocation_sequence,2,2,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.80072,staging choices can block later relocation and drawer access
+relocation_sequence,2,3,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.69820,staging choices can block later relocation and drawer access
+relocation_sequence,2,4,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.68763,staging choices can block later relocation and drawer access
+relocation_sequence,2,5,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.51918,staging choices can block later relocation and drawer access
+relocation_sequence,2,6,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.80262,staging choices can block later relocation and drawer access
+relocation_sequence,2,7,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.65307,staging choices can block later relocation and drawer access
+relocation_sequence,2,8,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.68917,staging choices can block later relocation and drawer access
+relocation_sequence,2,9,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.65434,staging choices can block later relocation and drawer access
+relocation_sequence,2,10,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.51734,staging choices can block later relocation and drawer access
+relocation_sequence,2,11,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.56259,staging choices can block later relocation and drawer access
+relocation_sequence,3,0,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.54705,staging choices can block later relocation and drawer access
+relocation_sequence,3,1,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.54771,staging choices can block later relocation and drawer access
+relocation_sequence,3,2,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.80856,staging choices can block later relocation and drawer access
+relocation_sequence,3,3,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.63427,staging choices can block later relocation and drawer access
+relocation_sequence,3,4,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.60497,staging choices can block later relocation and drawer access
+relocation_sequence,3,5,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.45490,staging choices can block later relocation and drawer access
+relocation_sequence,3,6,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.67113,staging choices can block later relocation and drawer access
+relocation_sequence,3,7,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.69208,staging choices can block later relocation and drawer access
+relocation_sequence,3,8,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.81683,staging choices can block later relocation and drawer access
+relocation_sequence,3,9,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.78967,staging choices can block later relocation and drawer access
+relocation_sequence,3,10,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.61687,staging choices can block later relocation and drawer access
+relocation_sequence,3,11,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.74444,staging choices can block later relocation and drawer access
+relocation_sequence,4,0,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.71763,staging choices can block later relocation and drawer access
+relocation_sequence,4,1,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.75727,staging choices can block later relocation and drawer access
+relocation_sequence,4,2,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.76105,staging choices can block later relocation and drawer access
+relocation_sequence,4,3,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.49881,staging choices can block later relocation and drawer access
+relocation_sequence,4,4,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.78586,staging choices can block later relocation and drawer access
+relocation_sequence,4,5,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.47060,staging choices can block later relocation and drawer access
+relocation_sequence,4,6,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.63755,staging choices can block later relocation and drawer access
+relocation_sequence,4,7,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.50906,staging choices can block later relocation and drawer access
+relocation_sequence,4,8,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.58467,staging choices can block later relocation and drawer access
+relocation_sequence,4,9,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.66681,staging choices can block later relocation and drawer access
+relocation_sequence,4,10,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.59978,staging choices can block later relocation and drawer access
+relocation_sequence,4,11,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.80270,staging choices can block later relocation and drawer access
+relocation_sequence,5,0,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.70083,staging choices can block later relocation and drawer access
+relocation_sequence,5,1,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.56245,staging choices can block later relocation and drawer access
+relocation_sequence,5,2,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.46418,staging choices can block later relocation and drawer access
+relocation_sequence,5,3,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.62395,staging choices can block later relocation and drawer access
+relocation_sequence,5,4,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.78765,staging choices can block later relocation and drawer access
+relocation_sequence,5,5,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.79843,staging choices can block later relocation and drawer access
+relocation_sequence,5,6,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.48712,staging choices can block later relocation and drawer access
+relocation_sequence,5,7,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.72742,staging choices can block later relocation and drawer access
+relocation_sequence,5,8,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.62779,staging choices can block later relocation and drawer access
+relocation_sequence,5,9,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.45052,staging choices can block later relocation and drawer access
+relocation_sequence,5,10,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.71591,staging choices can block later relocation and drawer access
+relocation_sequence,5,11,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.80759,staging choices can block later relocation and drawer access
+relocation_sequence,6,0,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.78642,staging choices can block later relocation and drawer access
+relocation_sequence,6,1,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.45808,staging choices can block later relocation and drawer access
+relocation_sequence,6,2,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.45020,staging choices can block later relocation and drawer access
+relocation_sequence,6,3,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.68714,staging choices can block later relocation and drawer access
+relocation_sequence,6,4,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.79532,staging choices can block later relocation and drawer access
+relocation_sequence,6,5,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.67164,staging choices can block later relocation and drawer access
+relocation_sequence,6,6,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.80297,staging choices can block later relocation and drawer access
+relocation_sequence,6,7,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.56212,staging choices can block later relocation and drawer access
+relocation_sequence,6,8,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.56493,staging choices can block later relocation and drawer access
+relocation_sequence,6,9,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.61432,staging choices can block later relocation and drawer access
+relocation_sequence,6,10,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.50586,staging choices can block later relocation and drawer access
+relocation_sequence,6,11,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.49682,staging choices can block later relocation and drawer access
+relocation_sequence,7,0,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.78353,staging choices can block later relocation and drawer access
+relocation_sequence,7,1,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.54083,staging choices can block later relocation and drawer access
+relocation_sequence,7,2,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.56723,staging choices can block later relocation and drawer access
+relocation_sequence,7,3,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.53066,staging choices can block later relocation and drawer access
+relocation_sequence,7,4,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.55319,staging choices can block later relocation and drawer access
+relocation_sequence,7,5,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.66594,staging choices can block later relocation and drawer access
+relocation_sequence,7,6,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.53504,staging choices can block later relocation and drawer access
+relocation_sequence,7,7,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.81645,staging choices can block later relocation and drawer access
+relocation_sequence,7,8,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.62268,staging choices can block later relocation and drawer access
+relocation_sequence,7,9,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.53321,staging choices can block later relocation and drawer access
+relocation_sequence,7,10,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.79080,staging choices can block later relocation and drawer access
+relocation_sequence,7,11,staging_bin;cabinet_pick;table_drop;drawer_pull,relocation_gate;cabinet;table;drawer,2,1.18000,0.00000,0.00000,0.48551,staging choices can block later relocation and drawer access
+combined_long_horizon,0,0,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.66597,0.38813,0.27825,0.34719,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,0,1,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.65221,0.72497,0.36702,0.38464,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,0,2,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.59323,0.51004,0.41272,0.50086,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,0,3,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.63293,0.40581,0.28091,0.35240,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,0,4,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.64716,0.50507,0.43028,0.43598,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,0,5,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.63140,0.48877,0.42143,0.46323,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,0,6,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.68758,0.43759,0.18271,0.56217,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,0,7,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.61572,0.68798,0.16704,0.35507,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,0,8,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.66028,0.65085,0.20816,0.51833,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,0,9,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.68625,0.69273,0.42075,0.45909,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,0,10,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.68137,0.51029,0.32209,0.51597,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,0,11,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.60915,0.67741,0.21874,0.35517,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,0,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.69985,0.63912,0.31603,0.55014,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,1,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.56126,0.43767,0.33714,0.60865,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,2,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.64527,0.73518,0.22565,0.61371,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,3,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.67620,0.63451,0.35450,0.44801,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,4,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.58330,0.61538,0.37311,0.56971,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,5,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.57142,0.42471,0.34656,0.46803,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,6,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.62211,0.67299,0.33712,0.63428,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,7,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.63338,0.58601,0.28524,0.33126,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,8,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.59401,0.51831,0.42306,0.44121,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,9,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.64070,0.60011,0.19017,0.28425,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,10,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.56900,0.59132,0.38005,0.55031,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,1,11,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.56353,0.55173,0.27247,0.60469,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,0,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.58558,0.56279,0.34203,0.47277,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,1,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.57797,0.70826,0.19545,0.64336,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,2,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.69395,0.72181,0.24719,0.58108,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,3,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.58438,0.53321,0.24494,0.58248,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,4,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.67146,0.53380,0.38346,0.25054,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,5,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.57645,0.41859,0.18652,0.56890,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,6,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.62309,0.62027,0.45454,0.52473,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,7,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.67125,0.46148,0.34751,0.51314,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,8,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.63732,0.58025,0.24266,0.56576,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,9,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.64027,0.55402,0.33892,0.46646,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,10,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.69263,0.46210,0.39223,0.50077,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,2,11,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.64956,0.62833,0.21645,0.58983,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,0,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.67166,0.63764,0.32276,0.43979,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,1,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.57066,0.62861,0.32707,0.35424,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,2,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.69789,0.43386,0.24315,0.48402,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,3,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.64132,0.73032,0.24351,0.40230,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,4,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.68081,0.69627,0.29300,0.48807,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,5,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.68088,0.64160,0.34255,0.60183,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,6,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.63667,0.44541,0.44982,0.63826,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,7,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.69603,0.70655,0.18527,0.53155,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,8,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.56850,0.61916,0.26498,0.39198,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,9,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.64261,0.44743,0.25734,0.58486,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,10,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.58762,0.38279,0.24312,0.60208,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,3,11,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.65042,0.54053,0.26783,0.63012,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,0,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.56259,0.60045,0.44048,0.38298,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,1,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.56099,0.59329,0.17654,0.32619,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,2,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.62506,0.59685,0.31632,0.49942,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,3,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.57656,0.40103,0.41160,0.45676,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,4,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.66894,0.49682,0.21992,0.63456,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,5,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.67743,0.59184,0.38114,0.63517,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,6,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.68193,0.75127,0.36790,0.29477,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,7,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.59519,0.40173,0.16542,0.55005,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,8,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.69755,0.66193,0.40691,0.44557,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,9,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.65262,0.67448,0.17078,0.48763,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,10,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.61073,0.52767,0.26321,0.48120,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,4,11,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.62231,0.75132,0.36985,0.55559,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,0,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.56289,0.52273,0.21844,0.44759,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,1,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.67489,0.72706,0.27915,0.28934,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,2,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.63097,0.69558,0.24405,0.25970,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,3,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.61464,0.57771,0.18345,0.38039,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,4,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.69542,0.65172,0.22421,0.30794,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,5,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.66038,0.55168,0.43160,0.47812,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,6,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.56112,0.42221,0.22173,0.50537,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,7,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.56781,0.51751,0.38861,0.47023,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,8,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.60394,0.75808,0.27616,0.35863,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,9,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.68930,0.41407,0.24226,0.32112,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,10,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.63443,0.70280,0.18761,0.33810,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,5,11,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.67697,0.65049,0.16539,0.30296,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,0,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.63793,0.72058,0.26724,0.37160,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,1,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.67739,0.72012,0.33321,0.40733,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,2,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.66711,0.39298,0.21310,0.27276,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,3,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.63183,0.44785,0.42309,0.43833,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,4,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.58012,0.40630,0.18105,0.28213,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,5,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.59418,0.58960,0.35054,0.59428,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,6,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.68336,0.62469,0.35748,0.57551,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,7,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.59083,0.58348,0.37643,0.37820,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,8,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.66459,0.45422,0.24585,0.54097,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,9,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.61583,0.58705,0.36443,0.61493,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,10,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.61539,0.53403,0.18239,0.29574,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,6,11,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.58530,0.65858,0.33207,0.39328,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,0,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.56889,0.47339,0.43111,0.36420,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,1,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.60780,0.55871,0.25788,0.43625,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,2,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.69848,0.47038,0.30669,0.36462,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,3,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.60797,0.54361,0.39324,0.61623,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,4,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.65257,0.70837,0.27867,0.39119,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,5,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.67019,0.74080,0.36553,0.54190,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,6,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.60805,0.69538,0.40964,0.52954,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,7,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,10,0.68241,0.47571,0.40094,0.55963,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,8,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.58229,0.67484,0.35915,0.54351,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,9,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.60983,0.65505,0.21281,0.30251,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,10,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,11,0.63412,0.68221,0.31420,0.37508,"aisle, swing, clutter, relocation, and long-horizon commitments"
+combined_long_horizon,7,11,aisle_handle;counter_pick;drawer_pull;back_item;side_shelf,aisle;counter;drawer;clutter_back;outside,12,0.63350,0.71549,0.25081,0.50463,"aisle, swing, clutter, relocation, and long-horizon commitments"
+adversarial_dead_end,0,0,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.56763,0.75861,0.49775,0.67206,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,0,1,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.55723,0.78699,0.46922,0.65715,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,0,2,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.60465,0.86497,0.67274,0.87034,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,0,3,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.60006,0.74040,0.57532,0.82572,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,0,4,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.59862,0.70344,0.68863,0.81349,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,0,5,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.52647,0.65601,0.62770,0.75885,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,0,6,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.50576,0.72401,0.55997,0.66793,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,0,7,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,13,0.55962,0.91216,0.50538,0.90876,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,0,8,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.55065,0.77264,0.62744,0.81699,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,0,9,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.54256,0.72654,0.43794,0.77436,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,0,10,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.56813,0.89593,0.44381,0.76999,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,0,11,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.60140,0.86050,0.52766,0.66672,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,0,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.60806,0.72651,0.62868,0.94755,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,1,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,13,0.56878,0.90024,0.45091,0.68812,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,2,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,13,0.54250,0.91751,0.39403,0.67712,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,3,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.53639,0.63275,0.47429,0.85261,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,4,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.50714,0.81820,0.37101,0.87128,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,5,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.60185,0.75099,0.44207,0.70855,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,6,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.56442,0.71641,0.43915,0.74051,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,7,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.57069,0.86156,0.41674,0.94723,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,8,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.51992,0.77932,0.48180,0.94283,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,9,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.59145,0.83126,0.47113,0.86210,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,10,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.55454,0.74105,0.58001,0.89367,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,1,11,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.60761,0.60722,0.62579,0.80169,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,0,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.52859,0.72212,0.63772,0.80476,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,1,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.50274,0.68130,0.42588,0.68279,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,2,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.57509,0.76848,0.53857,0.89871,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,3,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.50994,0.66035,0.69543,0.92779,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,4,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.50983,0.88602,0.38285,0.93964,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,5,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.51003,0.79546,0.51292,0.83163,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,6,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.53946,0.73768,0.60280,0.72847,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,7,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.61429,0.72365,0.67905,0.68825,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,8,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.55763,0.80327,0.46836,0.77980,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,9,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.52938,0.63009,0.40526,0.75585,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,10,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.56535,0.79064,0.47754,0.92464,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,2,11,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,13,0.56786,0.91097,0.43178,0.90592,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,0,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.51925,0.80336,0.62557,0.81329,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,1,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.51430,0.86281,0.61544,0.69833,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,2,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.53014,0.83862,0.50602,0.93200,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,3,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.56992,0.84927,0.69559,0.91876,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,4,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.59344,0.75959,0.36274,0.79414,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,5,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.50492,0.67350,0.53553,0.72180,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,6,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.61571,0.79085,0.45975,0.71810,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,7,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.50157,0.72466,0.45075,0.78697,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,8,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.51046,0.72396,0.35423,0.74695,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,9,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.61837,0.73228,0.36022,0.67390,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,10,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,13,0.55416,0.90229,0.35768,0.92551,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,3,11,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.55354,0.72879,0.47579,0.75307,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,0,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.58156,0.85039,0.47488,0.91432,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,1,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.51469,0.81149,0.49636,0.80671,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,2,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.50465,0.88059,0.37583,0.88995,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,3,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.51856,0.79959,0.47620,0.88416,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,4,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.50858,0.67259,0.43662,0.75366,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,5,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.59120,0.60904,0.40170,0.84973,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,6,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.56289,0.63682,0.49620,0.84832,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,7,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.52921,0.66120,0.51615,0.80537,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,8,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.57670,0.60551,0.57464,0.76935,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,9,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.61471,0.78429,0.62566,0.85272,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,10,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.54840,0.64267,0.47102,0.85587,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,4,11,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.61043,0.70218,0.57076,0.86424,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,0,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.56722,0.88871,0.61490,0.87581,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,1,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.52729,0.82671,0.60374,0.89600,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,2,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.52185,0.71742,0.43903,0.74364,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,3,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.58719,0.88901,0.41744,0.86217,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,4,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.55681,0.85805,0.38673,0.85809,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,5,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.52270,0.81954,0.38266,0.75058,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,6,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.58522,0.84440,0.51272,0.85339,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,7,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.58845,0.84798,0.50053,0.83272,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,8,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.56688,0.60205,0.58786,0.89363,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,9,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.53120,0.81995,0.42112,0.79721,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,10,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.51736,0.70666,0.55605,0.82297,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,5,11,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.52059,0.89158,0.63211,0.80560,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,0,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.51221,0.78173,0.63436,0.66504,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,1,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.52426,0.88051,0.54380,0.78541,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,2,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.61401,0.72294,0.59073,0.80058,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,3,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.59128,0.85970,0.45983,0.65729,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,4,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.54601,0.89652,0.37367,0.72962,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,5,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,13,0.55623,0.91367,0.36165,0.67888,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,6,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.56009,0.64221,0.46473,0.73427,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,7,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.61303,0.66847,0.47428,0.85842,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,8,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.51242,0.69762,0.35902,0.78985,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,9,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.52527,0.64904,0.35301,0.92879,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,10,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.52085,0.84836,0.60860,0.74977,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,6,11,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.58327,0.81412,0.45346,0.83739,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,0,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.57889,0.60219,0.49955,0.65501,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,1,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.59163,0.72880,0.60371,0.82402,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,2,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.50441,0.74624,0.61580,0.94714,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,3,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,13,0.58808,0.90608,0.36641,0.85600,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,4,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.56685,0.68880,0.49922,0.88233,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,5,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.61329,0.61442,0.47653,0.76692,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,6,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.50889,0.83705,0.51025,0.74187,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,7,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.60888,0.68467,0.53329,0.79235,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,8,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.52550,0.84740,0.57203,0.81058,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,9,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,12,0.50238,0.75613,0.59750,0.78151,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,10,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,11,0.59682,0.69281,0.59789,0.86250,adversarial dead-end sequence with multiple commitment traps
+adversarial_dead_end,7,11,aisle_handle;staging_bin;drawer_pull;back_item;outside_tray,aisle;relocation_gate;drawer;clutter_back;outside,13,0.54331,0.91008,0.53361,0.92141,adversarial dead-end sequence with multiple commitment traps
