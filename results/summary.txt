@@ -1,34 +1,70 @@
-Paper 79 mobile_manipulation_spatial_commitments geometry rebuild
+Paper 79 mobile_manipulation_spatial_commitments expanded v5 rebuild
 Terminal recommendation: KILL_ARCHIVE
-Reason: commitment planner combined success=0.100, receding TAMP=0.100, reachability margin=0.071, oracle=0.086; paired success diff vs TAMP=0.00000 and future-regret diff=0.00000.
-Main rollout rows: 2450
-Seeds: [0, 1, 2, 3, 4, 5, 6]
+Reason: v5 combined=0.000, TAMP=0.000, robust=0.000; hard aggregate v5=0.396, best_non_oracle=robust_backtracking_tamp:0.396, oracle=0.396; regret v5=1.000, TAMP=1.000; max stress v5=0.000, best=reachability_margin_sampler:0.000; best ablation=no_future_loss:0.000; failed gates: hard_margin,paired_lower_bound,future_regret,max_stress,fixed_risk,ablation_necessity.
+Main rollout rows: 7392
+Ablation rows: 1600
+Stress rows: 4096
+Fixed-risk rows: 3072
+Seeds: [0, 1, 2, 3, 4, 5, 6, 7]
 
 Combined long-horizon summary:
-greedy_current_reach success=0.00000 ci95=0.00000 future_regret=1.00000 reposition=1.75714
-navigation_then_manipulation success=0.00000 ci95=0.00000 future_regret=0.05714 reposition=1.05714
-reachability_margin_sampler success=0.07143 ci95=0.05600 future_regret=0.92857 reposition=2.25714
-receding_horizon_tamp success=0.10000 ci95=0.07408 future_regret=0.90000 reposition=2.35714
-commitment_planner_no_future success=0.10000 ci95=0.07408 future_regret=0.90000 reposition=2.34286
-commitment_cost_planner success=0.10000 ci95=0.07408 future_regret=0.90000 reposition=2.32857
-oracle_sequence_planner success=0.08571 ci95=0.05112 future_regret=0.91429 reposition=2.32857
+greedy_current_reach success=0.00000 ci95=0.00000 future_regret=1.00000 commitment_violation=0.26042
+navigation_then_manipulation success=0.00000 ci95=0.00000 future_regret=0.78125 commitment_violation=0.26042
+reachability_margin_sampler success=0.00000 ci95=0.00000 future_regret=1.00000 commitment_violation=0.26042
+receding_horizon_tamp success=0.00000 ci95=0.00000 future_regret=1.00000 commitment_violation=0.26042
+commitment_cost_planner_v4 success=0.00000 ci95=0.00000 future_regret=1.00000 commitment_violation=0.26042
+rollout_mpc_depth2 success=0.00000 ci95=0.00000 future_regret=1.00000 commitment_violation=0.26042
+beam_search_sequence_planner success=0.00000 ci95=0.00000 future_regret=1.00000 commitment_violation=0.26042
+topological_base_graph_search success=0.00000 ci95=0.00000 future_regret=1.00000 commitment_violation=0.26042
+robust_backtracking_tamp success=0.00000 ci95=0.00000 future_regret=1.00000 commitment_violation=0.26042
+spatial_commitment_tree_search_v5 success=0.00000 ci95=0.00000 future_regret=1.00000 commitment_violation=0.26042
+exact_sequence_oracle success=0.00000 ci95=0.00000 future_regret=1.00000 commitment_violation=0.26042
 
-Pairwise combined success:
-vs receding_horizon_tamp mean_diff=0.00000 ci95=0.00000
-vs reachability_margin_sampler mean_diff=0.02857 ci95=0.03615
+Aggregate hard-regime summary:
+greedy_current_reach success=0.22500 ci95=0.01069 future_regret=0.77500
+navigation_then_manipulation success=0.20000 ci95=0.00000 future_regret=0.44375
+reachability_margin_sampler success=0.21458 ci95=0.00740 future_regret=0.78541
+receding_horizon_tamp success=0.39375 ci95=0.00598 future_regret=0.60625
+commitment_cost_planner_v4 success=0.31042 ci95=0.02220 future_regret=0.68958
+rollout_mpc_depth2 success=0.39375 ci95=0.00598 future_regret=0.60625
+beam_search_sequence_planner success=0.39375 ci95=0.00598 future_regret=0.60625
+topological_base_graph_search success=0.39375 ci95=0.00598 future_regret=0.60625
+robust_backtracking_tamp success=0.39583 ci95=0.00535 future_regret=0.60417
+spatial_commitment_tree_search_v5 success=0.39583 ci95=0.00535 future_regret=0.60417
+exact_sequence_oracle success=0.39583 ci95=0.00535 future_regret=0.60417
+
+Pairwise hard-regime success for v5 reference:
+vs receding_horizon_tamp diff=0.00208 ci95=0.00408 better_seeds=1/8
+vs commitment_cost_planner_v4 diff=0.08541 ci95=0.02263 better_seeds=8/8
+vs beam_search_sequence_planner diff=0.00208 ci95=0.00408 better_seeds=1/8
+vs topological_base_graph_search diff=0.00208 ci95=0.00408 better_seeds=1/8
+vs robust_backtracking_tamp diff=0.00000 ci95=0.00000 better_seeds=0/8
+vs exact_sequence_oracle diff=0.00000 ci95=0.00000 better_seeds=0/8
 
 Ablation combined_long_horizon:
-commitment_full success=0.10000 ci95=0.07408 future_regret=0.90000
-no_future_reach_loss success=0.10000 ci95=0.07408 future_regret=0.90000
-no_corridor_term success=0.10000 ci95=0.07408 future_regret=0.90000
-no_swing_term success=0.10000 ci95=0.07408 future_regret=0.90000
-no_reposition_term success=0.10000 ci95=0.07408 future_regret=0.90000
-one_step_only success=0.10000 ci95=0.07408 future_regret=0.90000
-random_immediate_feasible success=0.00000 ci95=0.00000 future_regret=1.00000
+spatial_commitment_v5_full success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+no_future_loss success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+no_commitment_state success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+no_backtracking success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+no_beam_diversity success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+one_step_only success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+no_swing_cost success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+no_aisle_cost success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+no_occlusion_cost success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+oracle_handoff success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
 
-Stress level 1.0:
-reachability_margin_sampler success=0.00000 ci95=0.00000 future_regret=1.00000
-receding_horizon_tamp success=0.00000 ci95=0.00000 future_regret=1.00000
-commitment_planner_no_future success=0.00000 ci95=0.00000 future_regret=1.00000
-commitment_cost_planner success=0.00000 ci95=0.00000 future_regret=1.00000
-oracle_sequence_planner success=0.00000 ci95=0.00000 future_regret=1.00000
+Stress level 1.40:
+reachability_margin_sampler success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+receding_horizon_tamp success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+commitment_cost_planner_v4 success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+beam_search_sequence_planner success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+topological_base_graph_search success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+robust_backtracking_tamp success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+spatial_commitment_tree_search_v5 success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+exact_sequence_oracle success=0.00000 ci95=0.00000 future_regret=1.00000 risk=1.00000
+
+Fixed-risk combined_long_horizon:
+budget=0.00 v5=0.00000 ci95=0.00000 best=receding_horizon_tamp:0.00000
+budget=0.05 v5=0.00000 ci95=0.00000 best=receding_horizon_tamp:0.00000
+budget=0.10 v5=0.00000 ci95=0.00000 best=receding_horizon_tamp:0.00000
+budget=0.20 v5=0.00000 ci95=0.00000 best=receding_horizon_tamp:0.00000

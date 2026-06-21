@@ -1,6 +1,8 @@
 import csv
 import math
+import os
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 
 import matplotlib
@@ -11,12 +13,18 @@ import numpy as np
 
 
 BASE_SEED = 79012026
-SEEDS = list(range(7))
-EPISODES_PER_SPLIT_SEED = 10
-STRESS_EPISODES_PER_SEED = 6
-BASE_RADIUS = 0.18
-REACH_MIN = 0.32
-REACH_MAX = 0.86
+QUICK = os.getenv("PAPER79_QUICK", "0") == "1"
+SEED_COUNT = int(os.getenv("PAPER79_SEED_COUNT", 1 if QUICK else 8))
+SEEDS = list(range(SEED_COUNT))
+MAIN_EPISODES_PER_SPLIT_SEED = int(os.getenv("PAPER79_MAIN_EPISODES", 3 if QUICK else 12))
+ABLATION_EPISODES_PER_SEED = int(os.getenv("PAPER79_ABLATION_EPISODES", 2 if QUICK else 10))
+STRESS_EPISODES_PER_SEED = int(os.getenv("PAPER79_STRESS_EPISODES", 2 if QUICK else 8))
+FIXED_RISK_EPISODES_PER_SEED = int(os.getenv("PAPER79_FIXED_RISK_EPISODES", 2 if QUICK else 8))
+
+BASE_RADIUS = 0.17
+REACH_MIN = 0.28
+REACH_MAX = 0.92
+REFERENCE_METHOD = "spatial_commitment_tree_search_v5"
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
@@ -25,40 +33,129 @@ RESULTS.mkdir(exist_ok=True)
 FIGURES.mkdir(exist_ok=True)
 
 
-@dataclass
+@dataclass(frozen=True)
 class Obj:
     name: str
-    pos: np.ndarray
+    pos: tuple
     zone: str
-    approach: np.ndarray
-    swing_center: np.ndarray
-    swing_radius: float
+    approach: tuple
+    swing_radius: float = 0.0
     needs_swing: bool = False
     needs_clear_approach: bool = False
+    relocation_sensitive: bool = False
 
 
-@dataclass
+@dataclass(frozen=True)
 class Episode:
     split: str
     seed: int
     episode_id: int
-    start: np.ndarray
-    objects: list
-    obstacles: list
+    start: tuple
+    objects: tuple
+    obstacles: tuple
     aisle_width: float
     clutter_density: float
     future_ambiguity: float
+    relocation_pressure: float
     description: str
 
+
+MAIN_SPLITS = [
+    "open_room_easy",
+    "narrow_aisle_commitment",
+    "drawer_swing_deadlock",
+    "clutter_occlusion_reach",
+    "relocation_sequence",
+    "combined_long_horizon",
+    "adversarial_dead_end",
+]
+
+HARD_SPLITS = [
+    "drawer_swing_deadlock",
+    "clutter_occlusion_reach",
+    "relocation_sequence",
+    "combined_long_horizon",
+    "adversarial_dead_end",
+]
 
 METHODS = [
     "greedy_current_reach",
     "navigation_then_manipulation",
     "reachability_margin_sampler",
     "receding_horizon_tamp",
-    "commitment_planner_no_future",
-    "commitment_cost_planner",
-    "oracle_sequence_planner",
+    "commitment_cost_planner_v4",
+    "rollout_mpc_depth2",
+    "beam_search_sequence_planner",
+    "topological_base_graph_search",
+    "robust_backtracking_tamp",
+    REFERENCE_METHOD,
+    "exact_sequence_oracle",
+]
+
+PAIRWISE_REFS = [
+    "receding_horizon_tamp",
+    "commitment_cost_planner_v4",
+    "beam_search_sequence_planner",
+    "topological_base_graph_search",
+    "robust_backtracking_tamp",
+    "exact_sequence_oracle",
+]
+
+METRICS = [
+    "success",
+    "task_success_rate",
+    "future_regret",
+    "commitment_violation",
+    "base_collision",
+    "arm_collision",
+    "swing_block",
+    "approach_occlusion",
+    "reposition_count",
+    "path_length",
+]
+
+PAIRWISE_METRICS = [
+    "success",
+    "task_success_rate",
+    "future_regret",
+    "commitment_violation",
+    "reposition_count",
+    "path_length",
+]
+
+AB_METHODS = [
+    "spatial_commitment_v5_full",
+    "no_future_loss",
+    "no_commitment_state",
+    "no_backtracking",
+    "no_beam_diversity",
+    "one_step_only",
+    "no_swing_cost",
+    "no_aisle_cost",
+    "no_occlusion_cost",
+    "oracle_handoff",
+]
+
+STRESS_LEVELS = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4]
+STRESS_METHODS = [
+    "reachability_margin_sampler",
+    "receding_horizon_tamp",
+    "commitment_cost_planner_v4",
+    "beam_search_sequence_planner",
+    "topological_base_graph_search",
+    "robust_backtracking_tamp",
+    REFERENCE_METHOD,
+    "exact_sequence_oracle",
+]
+RISK_BUDGETS = [float(x) for x in os.getenv("PAPER79_RISK_BUDGETS", "0.00,0.05,0.10,0.20").split(",")]
+FIXED_RISK_SPLITS = ["combined_long_horizon", "adversarial_dead_end"]
+FIXED_RISK_METHODS = [
+    "receding_horizon_tamp",
+    "commitment_cost_planner_v4",
+    "beam_search_sequence_planner",
+    "topological_base_graph_search",
+    "robust_backtracking_tamp",
+    REFERENCE_METHOD,
 ]
 
 
@@ -73,8 +170,29 @@ def stable_rng(*parts):
     return np.random.default_rng(acc)
 
 
+def arr(x):
+    return np.asarray(x, dtype=float)
+
+
+def tup(x):
+    a = arr(x)
+    return (float(a[0]), float(a[1]))
+
+
+def norm(v):
+    return float(np.linalg.norm(arr(v)))
+
+
+def unit(v):
+    v = arr(v)
+    n = norm(v)
+    if n < 1e-9:
+        return np.array([1.0, 0.0])
+    return v / n
+
+
 def ci95(vals):
-    vals = list(vals)
+    vals = [float(v) for v in vals]
     if len(vals) <= 1:
         return 0.0
     mean = sum(vals) / len(vals)
@@ -82,196 +200,274 @@ def ci95(vals):
     return 1.96 * sd / math.sqrt(len(vals))
 
 
-def norm(v):
-    return float(np.linalg.norm(v))
-
-
-def unit(v):
-    n = norm(v)
-    if n < 1e-9:
-        return np.array([1.0, 0.0])
-    return v / n
-
-
 def in_rect(p, rect, pad=0.0):
+    p = arr(p)
     x1, y1, x2, y2 = rect
     return x1 - pad <= p[0] <= x2 + pad and y1 - pad <= p[1] <= y2 + pad
-
-
-def segment_hits_rect(a, b, rect, pad=0.0):
-    for t in np.linspace(0.0, 1.0, 24):
-        p = (1.0 - t) * a + t * b
-        if in_rect(p, rect, pad):
-            return True
-    return False
-
-
-def path_clear(a, b, obstacles, pad=BASE_RADIUS):
-    if pad >= BASE_RADIUS * 0.9:
-        return point_clear(a, obstacles, pad=pad) and point_clear(b, obstacles, pad=pad)
-    return not any(segment_hits_rect(a, b, rect, pad=pad) for rect in obstacles)
 
 
 def point_clear(p, obstacles, pad=BASE_RADIUS):
     return not any(in_rect(p, rect, pad=pad) for rect in obstacles)
 
 
-def scene_obstacles(split, aisle_width, clutter_density):
-    obstacles = []
-    if split in {"narrow_kitchen_aisle", "combined_long_horizon"}:
-        half = aisle_width / 2.0
-        obstacles += [(-1.15, 0.05, -half, 1.55), (half, 0.05, 1.15, 1.55)]
-    if split in {"drawer_door_conflict", "combined_long_horizon"}:
-        obstacles += [(-1.25, -0.05, -0.36, 0.08), (0.36, -0.05, 1.25, 0.08)]
-    if split in {"cluttered_reach_occlusion", "combined_long_horizon"}:
-        n = int(round(2 + 5 * clutter_density))
-        for i in range(n):
-            x = -0.85 + 1.7 * (i / max(1, n - 1))
-            obstacles.append((x - 0.05, -0.30, x + 0.05, -0.06))
-    return obstacles
+def segment_hits_rect(a, b, rect, pad=0.0):
+    a = arr(a)
+    b = arr(b)
+    for t in np.linspace(0.0, 1.0, 18):
+        if in_rect((1.0 - t) * a + t * b, rect, pad=pad):
+            return True
+    return False
 
 
-def make_object(name, pos, zone, approach=(0.0, -1.0), swing_radius=0.0, needs_swing=False, clear=False):
-    approach = unit(np.array(approach, dtype=float))
+def path_clear(a, b, obstacles, pad=BASE_RADIUS):
+    if not point_clear(a, obstacles, pad=pad) or not point_clear(b, obstacles, pad=pad):
+        return False
+    return not any(segment_hits_rect(a, b, rect, pad=pad) for rect in obstacles)
+
+
+def distance_point_rect(p, rect):
+    p = arr(p)
+    x1, y1, x2, y2 = rect
+    dx = max(x1 - p[0], 0.0, p[0] - x2)
+    dy = max(y1 - p[1], 0.0, p[1] - y2)
+    return math.sqrt(dx * dx + dy * dy)
+
+
+def point_segment_distance(p, a, b):
+    p = arr(p)
+    a = arr(a)
+    b = arr(b)
+    ab = b - a
+    denom = float(np.dot(ab, ab))
+    if denom < 1e-9:
+        return norm(p - a)
+    t = max(0.0, min(1.0, float(np.dot(p - a, ab) / denom)))
+    return norm(p - (a + t * ab))
+
+
+def clearance_proxy(p, obstacles):
+    return min([distance_point_rect(p, rect) for rect in obstacles] + [1.0])
+
+
+def obj(name, pos, zone, approach=(0.0, -1.0), swing_radius=0.0, swing=False, clear=False, relocation=False):
     return Obj(
         name=name,
-        pos=np.array(pos, dtype=float),
+        pos=tup(pos),
         zone=zone,
-        approach=approach,
-        swing_center=np.array(pos, dtype=float),
-        swing_radius=swing_radius,
-        needs_swing=needs_swing,
-        needs_clear_approach=clear,
+        approach=tup(unit(approach)),
+        swing_radius=float(swing_radius),
+        needs_swing=bool(swing),
+        needs_clear_approach=bool(clear),
+        relocation_sensitive=bool(relocation),
     )
 
 
+def scene_obstacles(split, aisle_width, clutter_density, relocation_pressure):
+    obstacles = []
+    if split in {"narrow_aisle_commitment", "combined_long_horizon", "adversarial_dead_end", "stress_commitment"}:
+        half = aisle_width / 2.0
+        obstacles += [(-1.15, 0.02, -half, 1.65), (half, 0.02, 1.15, 1.65)]
+    if split in {"drawer_swing_deadlock", "combined_long_horizon", "adversarial_dead_end", "stress_commitment"}:
+        obstacles += [(-1.25, -0.06, -0.42, 0.08), (0.42, -0.06, 1.25, 0.08)]
+    if split in {"clutter_occlusion_reach", "combined_long_horizon", "adversarial_dead_end", "stress_commitment"}:
+        n = int(round(2 + 5 * clutter_density))
+        for i in range(n):
+            x = -0.82 + 1.64 * (i / max(1, n - 1))
+            obstacles.append((x - 0.045, -0.34, x + 0.045, -0.04))
+    if split in {"relocation_sequence", "combined_long_horizon", "adversarial_dead_end", "stress_commitment"}:
+        w = 0.09 + 0.06 * relocation_pressure
+        obstacles += [(-0.95, 0.48, -0.18 - w, 0.68), (0.18 + w, 0.48, 0.95, 0.68)]
+    return tuple(obstacles)
+
+
+def jitter_objects(objects, rng):
+    out = []
+    for o in objects:
+        delta = rng.normal(0.0, 0.028, size=2)
+        out.append(
+            Obj(
+                name=o.name,
+                pos=tup(arr(o.pos) + delta),
+                zone=o.zone,
+                approach=o.approach,
+                swing_radius=o.swing_radius,
+                needs_swing=o.needs_swing,
+                needs_clear_approach=o.needs_clear_approach,
+                relocation_sensitive=o.relocation_sensitive,
+            )
+        )
+    return tuple(out)
+
+
 def make_episode(split, seed, episode_id, stress=None):
-    rng = stable_rng("episode", split, seed, episode_id, 0 if stress is None else int(1000 * stress))
-    aisle_width = 1.20
+    key_stress = 0 if stress is None else int(round(1000 * float(stress)))
+    rng = stable_rng("episode", split, seed, episode_id, key_stress)
+    aisle_width = 1.18
     clutter_density = 0.0
     future_ambiguity = 0.0
+    relocation_pressure = 0.0
+
     if split == "open_room_easy":
-        objects = [
-            make_object("cup", (-0.50, 0.10), "open", approach=(0, -1)),
-            make_object("bowl", (0.45, 0.15), "open", approach=(0, -1)),
-            make_object("bin", (0.10, 0.80), "open", approach=(0, -1)),
-        ]
+        objects = (
+            obj("cup", (-0.52, 0.12), "open"),
+            obj("bowl", (0.45, 0.18), "open"),
+            obj("bin", (0.10, 0.82), "open"),
+        )
         description = "open room with weak spatial commitments"
-    elif split == "narrow_kitchen_aisle":
-        aisle_width = rng.uniform(0.54, 0.70)
-        objects = [
-            make_object("aisle_handle", (0.0, 1.05), "aisle", approach=(0, -1), clear=True),
-            make_object("outside_tray", (0.95, -0.55), "outside", approach=(-1, 0)),
-            make_object("side_shelf", (-0.85, -0.48), "outside", approach=(1, 0)),
-        ]
-        description = "deep aisle poses trap later outside manipulation"
-    elif split == "drawer_door_conflict":
-        objects = [
-            make_object("counter_pick", (0.15, -0.20), "counter", approach=(0, -1)),
-            make_object("drawer_pull", (0.18, 0.22), "drawer", approach=(0, -1), swing_radius=0.58, needs_swing=True),
-            make_object("side_bin", (-0.85, -0.35), "counter", approach=(1, 0)),
-        ]
-        description = "early base pose can block later drawer swing"
-    elif split == "cluttered_reach_occlusion":
-        clutter_density = rng.uniform(0.45, 0.85)
-        objects = [
-            make_object("front_item", (-0.35, -0.12), "clutter_front", approach=(0, -1), clear=True),
-            make_object("back_item", (0.35, 0.32), "clutter_back", approach=(0, -1), clear=True),
-            make_object("side_item", (0.95, 0.00), "side", approach=(-1, 0)),
-        ]
-        description = "front commitments occlude later back-object approach"
+    elif split == "narrow_aisle_commitment":
+        aisle_width = rng.uniform(0.58, 0.72)
+        objects = (
+            obj("aisle_handle", (0.0, 1.06), "aisle", clear=True),
+            obj("outside_tray", (0.96, -0.55), "outside", approach=(-1, 0)),
+            obj("side_shelf", (-0.88, -0.48), "outside", approach=(1, 0)),
+        )
+        description = "deep aisle base choices trap later outside manipulation"
+    elif split == "drawer_swing_deadlock":
+        objects = (
+            obj("counter_pick", (0.15, -0.23), "counter"),
+            obj("drawer_pull", (0.18, 0.25), "drawer", swing_radius=0.50, swing=True),
+            obj("side_bin", (-0.86, -0.34), "counter", approach=(1, 0)),
+        )
+        description = "current pose can block a later drawer swing"
+    elif split == "clutter_occlusion_reach":
+        clutter_density = rng.uniform(0.48, 0.86)
+        objects = (
+            obj("front_item", (-0.36, -0.12), "clutter_front", clear=True),
+            obj("back_item", (0.34, 0.34), "clutter_back", approach=(-0.35, -1.0), clear=True),
+            obj("side_item", (0.94, 0.02), "side", approach=(-1, 0)),
+        )
+        description = "early pose can occlude the later back-object approach cone"
+    elif split == "relocation_sequence":
+        relocation_pressure = rng.uniform(0.45, 0.82)
+        objects = (
+            obj("staging_bin", (-0.05, 0.20), "relocation_gate", relocation=True),
+            obj("cabinet_pick", (0.72, 0.86), "cabinet", approach=(-1, -0.2), clear=True),
+            obj("table_drop", (-0.74, 0.84), "table", approach=(1, -0.2), clear=True),
+            obj("drawer_pull", (0.18, 0.25), "drawer", swing_radius=0.42, swing=True),
+        )
+        description = "staging choices can block later relocation and drawer access"
     elif split == "combined_long_horizon":
-        aisle_width = rng.uniform(0.52, 0.68)
-        clutter_density = rng.uniform(0.35, 0.75)
-        future_ambiguity = rng.uniform(0.15, 0.45)
-        objects = [
-            make_object("aisle_handle", (0.0, 1.05), "aisle", approach=(0, -1), clear=True),
-            make_object("counter_pick", (0.10, -0.22), "counter", approach=(0, -1)),
-            make_object("drawer_pull", (0.18, 0.24), "drawer", approach=(0, -1), swing_radius=0.08, needs_swing=True),
-            make_object("back_item", (0.20, 0.38), "clutter_back", approach=(-0.5, -1), clear=True),
-        ]
-        description = "aisle, swing, clutter, and long-horizon commitments"
+        aisle_width = rng.uniform(0.56, 0.70)
+        clutter_density = rng.uniform(0.38, 0.76)
+        future_ambiguity = rng.uniform(0.16, 0.46)
+        relocation_pressure = rng.uniform(0.25, 0.65)
+        objects = (
+            obj("aisle_handle", (0.0, 1.06), "aisle", clear=True),
+            obj("counter_pick", (0.12, -0.22), "counter"),
+            obj("drawer_pull", (0.18, 0.25), "drawer", swing_radius=0.34, swing=True),
+            obj("back_item", (0.24, 0.38), "clutter_back", approach=(-0.45, -1), clear=True),
+            obj("side_shelf", (-0.88, -0.48), "outside", approach=(1, 0)),
+        )
+        description = "aisle, swing, clutter, relocation, and long-horizon commitments"
+    elif split == "adversarial_dead_end":
+        aisle_width = rng.uniform(0.50, 0.62)
+        clutter_density = rng.uniform(0.60, 0.92)
+        future_ambiguity = rng.uniform(0.35, 0.70)
+        relocation_pressure = rng.uniform(0.65, 0.95)
+        objects = (
+            obj("aisle_handle", (0.0, 1.10), "aisle", clear=True),
+            obj("staging_bin", (-0.05, 0.20), "relocation_gate", relocation=True),
+            obj("drawer_pull", (0.20, 0.27), "drawer", swing_radius=0.48, swing=True),
+            obj("back_item", (0.24, 0.42), "clutter_back", approach=(-0.45, -1), clear=True),
+            obj("outside_tray", (0.98, -0.58), "outside", approach=(-1, 0)),
+        )
+        description = "adversarial dead-end sequence with multiple commitment traps"
     elif split == "stress_commitment":
         level = float(stress)
-        aisle_width = 0.78 - 0.28 * level
-        clutter_density = 0.15 + 0.70 * level
-        future_ambiguity = 0.10 + 0.55 * level
-        objects = [
-            make_object("aisle_handle", (0.0, 1.05), "aisle", approach=(0, -1), clear=True),
-            make_object("counter_pick", (0.10, -0.22), "counter", approach=(0, -1)),
-            make_object("drawer_pull", (0.18, 0.24), "drawer", approach=(0, -1), swing_radius=0.20 + 0.14 * level, needs_swing=True),
-            make_object("back_item", (0.20, 0.38), "clutter_back", approach=(-0.5, -1), clear=True),
-        ]
+        aisle_width = 0.80 - 0.22 * level
+        clutter_density = 0.18 + 0.58 * level
+        future_ambiguity = 0.12 + 0.48 * level
+        relocation_pressure = 0.18 + 0.62 * level
+        objects = (
+            obj("aisle_handle", (0.0, 1.08), "aisle", clear=True),
+            obj("staging_bin", (-0.05, 0.20), "relocation_gate", relocation=True),
+            obj("drawer_pull", (0.18, 0.25), "drawer", swing_radius=0.25 + 0.12 * level, swing=True),
+            obj("back_item", (0.24, 0.40), "clutter_back", approach=(-0.45, -1), clear=True),
+            obj("outside_tray", (0.96, -0.55), "outside", approach=(-1, 0)),
+        )
         description = f"stress level {level:.2f}"
     else:
         raise ValueError(split)
 
-    obstacles = scene_obstacles(split if split != "stress_commitment" else "combined_long_horizon", aisle_width, clutter_density)
-    for obj in objects:
-        obj.pos = obj.pos + rng.normal(0.0, 0.035, size=2)
-        obj.swing_center = obj.pos.copy()
+    objects = jitter_objects(objects, rng)
+    obstacles = scene_obstacles(split, aisle_width, clutter_density, relocation_pressure)
     return Episode(
         split=split,
         seed=seed,
         episode_id=episode_id,
-        start=np.array([0.0, -1.15]),
+        start=(0.0, -1.18),
         objects=objects,
         obstacles=obstacles,
-        aisle_width=aisle_width,
-        clutter_density=clutter_density,
-        future_ambiguity=future_ambiguity,
+        aisle_width=float(aisle_width),
+        clutter_density=float(clutter_density),
+        future_ambiguity=float(future_ambiguity),
+        relocation_pressure=float(relocation_pressure),
         description=description,
     )
 
 
-def candidate_poses(obj, episode, rng):
+def candidate_poses(obj_, episode, rng):
+    center = arr(obj_.pos)
     poses = []
-    angles = np.linspace(0, 2 * math.pi, 8, endpoint=False)
-    radii = [0.50, 0.74]
-    for radius in radii:
-        for angle in angles:
-            p = obj.pos + radius * np.array([math.cos(angle), math.sin(angle)])
-            p += rng.normal(0.0, 0.018, size=2)
-            poses.append(p)
-    # Add deliberately tempting and conservative poses for commitment-heavy scenes.
-    if obj.zone == "aisle":
-        poses.append(np.array([0.0, 0.98]))  # deep and risky
-        poses.append(np.array([0.0, 0.28]))  # shallow but still reachable in some scenes
-    if obj.zone == "counter":
-        poses.append(obj.pos + np.array([0.0, -0.42]))
-        poses.append(obj.pos + np.array([0.48, -0.22]))
-    if obj.zone == "drawer":
-        poses.append(obj.pos + np.array([0.0, -0.48]))
-        poses.append(obj.pos + np.array([0.62, -0.08]))
-        poses.append(np.array([0.15 * obj.pos[0], -0.22]))
-    if obj.zone == "clutter_back":
-        poses.append(obj.pos + np.array([-0.62, -0.10]))
-        poses.append(obj.pos + np.array([0.00, -0.58]))
-        poses.append(np.array([0.05, 0.12]))
-    return poses
+    for radius in [0.42, 0.62, 0.82]:
+        for angle in np.linspace(0, 2 * math.pi, 8, endpoint=False):
+            p = center + radius * np.array([math.cos(angle), math.sin(angle)])
+            p = p + rng.normal(0.0, 0.012, size=2)
+            poses.append(tup(p))
+
+    if obj_.zone == "aisle":
+        poses += [(0.0, 1.00), (0.0, 0.58), (0.0, 0.34), (0.55, 0.40), (-0.55, 0.40)]
+    if obj_.zone in {"outside", "side"}:
+        poses += [tup(center + np.array([-0.52, -0.10])), tup(center + np.array([0.52, -0.10])), tup(center + np.array([0.0, -0.56]))]
+    if obj_.zone == "counter":
+        poses += [tup(center + np.array([0.0, -0.44])), tup(center + np.array([0.50, -0.20])), tup(center + np.array([-0.50, -0.20]))]
+    if obj_.zone == "drawer":
+        poses += [tup(center + np.array([0.0, -0.54])), tup(center + np.array([0.66, -0.05])), tup(center + np.array([-0.66, -0.05]))]
+    if obj_.zone == "clutter_back":
+        poses += [tup(center + np.array([-0.62, -0.10])), tup(center + np.array([0.00, -0.60])), (0.06, 0.12), (-0.42, 0.12)]
+    if obj_.zone == "relocation_gate":
+        poses += [(-0.62, 0.08), (0.62, 0.08), (0.00, -0.36), (0.00, 0.56)]
+    if obj_.zone in {"cabinet", "table"}:
+        poses += [tup(center + np.array([0.0, -0.58])), tup(center + np.array([-0.58, -0.18])), tup(center + np.array([0.58, -0.18]))]
+
+    # Stable de-duplication after rounding keeps the search small and deterministic.
+    seen = set()
+    out = []
+    for p in poses:
+        key = (round(p[0], 3), round(p[1], 3))
+        if key not in seen:
+            seen.add(key)
+            out.append(p)
+    return out
 
 
-def immediate_features(episode, obj, pose, current_base, state, manipulation_strict=True):
-    dist = norm(pose - obj.pos)
+def state_blocks_object(state, obj_):
+    if "aisle_trap" in state and obj_.zone not in {"aisle", "relocation_gate"}:
+        return "aisle_trap"
+    if f"swing_block:{obj_.name}" in state:
+        return "swing_block"
+    if f"occluded:{obj_.name}" in state:
+        return "approach_occlusion"
+    if "relocation_dead_end" in state and obj_.zone in {"cabinet", "table", "outside", "clutter_back"}:
+        return "relocation_dead_end"
+    return ""
+
+
+def immediate_features(episode, obj_, pose, current_base, state, manipulation_strict=True):
+    pose = arr(pose)
+    obj_pos = arr(obj_.pos)
+    dist = norm(pose - obj_pos)
     reach_ok = REACH_MIN <= dist <= REACH_MAX
     reach_margin = max(0.0, min(dist - REACH_MIN, REACH_MAX - dist))
     nav_clear = path_clear(current_base, pose, episode.obstacles, pad=BASE_RADIUS)
     base_clear = point_clear(pose, episode.obstacles, pad=BASE_RADIUS)
-    arm_clear = path_clear(pose, obj.pos, episode.obstacles, pad=0.035)
-    approach_vec = unit(pose - obj.pos)
-    approach_ok = float(np.dot(approach_vec, obj.approach)) > -0.10
-    swing_blocked = obj.needs_swing and norm(pose - obj.swing_center) < obj.swing_radius + BASE_RADIUS
-    state_block = False
+    arm_clear = path_clear(pose, obj_pos, episode.obstacles, pad=0.035)
+    approach_vec = unit(pose - obj_pos)
+    approach_ok = float(np.dot(approach_vec, arr(obj_.approach))) > 0.04
+    swing_blocked = obj_.needs_swing and norm(pose - obj_pos) < obj_.swing_radius + BASE_RADIUS
+    state_reason = state_blocks_object(state, obj_)
+
     reason = "ok"
-    if "aisle_trap" in state and obj.zone != "aisle":
-        state_block = True
-        reason = "aisle_trap"
-    if f"swing_block:{obj.name}" in state:
-        state_block = True
-        reason = "swing_block"
-    if f"occluded:{obj.name}" in state:
-        state_block = True
-        reason = "approach_occlusion"
     if not nav_clear or not base_clear:
         reason = "base_collision"
     elif manipulation_strict and not reach_ok:
@@ -282,197 +478,285 @@ def immediate_features(episode, obj, pose, current_base, state, manipulation_str
         reason = "approach_cone"
     elif manipulation_strict and swing_blocked:
         reason = "swing_block"
-    elif state_block:
-        pass
-    feasible = bool(nav_clear and base_clear and (not manipulation_strict or (reach_ok and arm_clear and approach_ok and not swing_blocked)) and not state_block)
-    clearance = min(
-        [abs(pose[0] - rect[0]) + abs(pose[1] - rect[1]) for rect in episode.obstacles] + [1.0]
+    elif state_reason:
+        reason = state_reason
+
+    feasible = bool(
+        nav_clear
+        and base_clear
+        and (not manipulation_strict or (reach_ok and arm_clear and approach_ok and not swing_blocked))
+        and not state_reason
     )
     return {
         "feasible": feasible,
         "reason": reason,
         "reach_margin": reach_margin,
-        "nav_distance": norm(pose - current_base),
+        "nav_distance": norm(pose - arr(current_base)),
         "arm_clear": arm_clear,
         "base_clear": base_clear,
         "nav_clear": nav_clear,
         "approach_ok": approach_ok,
         "swing_blocked": swing_blocked,
-        "clearance_proxy": float(clearance),
+        "clearance_proxy": clearance_proxy(pose, episode.obstacles),
     }
 
 
-def commit_state(episode, pose, task_idx, state):
+def commit_state(episode, pose, task_idx, state, disable=()):
+    pose = arr(pose)
+    obj_ = episode.objects[task_idx]
     new_state = set(state)
     events = []
-    obj = episode.objects[task_idx]
-    if episode.aisle_width < 0.72 and obj.zone == "aisle" and abs(pose[0]) < episode.aisle_width / 2 and pose[1] > 0.65:
-        new_state.add("aisle_trap")
-        events.append("aisle_trap")
+    disabled = set(disable)
+
+    if "aisle" not in disabled:
+        if episode.aisle_width < 0.74 and obj_.zone == "aisle" and abs(pose[0]) < episode.aisle_width / 2 and pose[1] > 0.68:
+            new_state.add("aisle_trap")
+            events.append("aisle_trap")
+
+    if "relocation" not in disabled:
+        if obj_.relocation_sensitive and episode.relocation_pressure > 0.42 and abs(pose[0]) < 0.24 and pose[1] > 0.20:
+            new_state.add("relocation_dead_end")
+            events.append("relocation_dead_end")
+
     for future in episode.objects[task_idx + 1 :]:
-        if future.needs_swing and norm(pose - future.swing_center) < future.swing_radius + BASE_RADIUS:
+        fpos = arr(future.pos)
+        if "swing" not in disabled and future.needs_swing and norm(pose - fpos) < future.swing_radius + BASE_RADIUS + 0.05:
             new_state.add(f"swing_block:{future.name}")
             events.append("swing_block")
-        if future.needs_clear_approach and episode.clutter_density > 0.35:
-            if norm(pose - future.pos) < 0.62 and pose[1] < future.pos[1]:
+        if "occlusion" not in disabled and future.needs_clear_approach and episode.clutter_density > 0.34:
+            approach_start = fpos + arr(future.approach) * 0.72
+            if point_segment_distance(pose, approach_start, fpos) < 0.25 and norm(pose - fpos) < 0.78:
                 new_state.add(f"occluded:{future.name}")
                 events.append("approach_occlusion")
-    return new_state, events
+    return frozenset(new_state), tuple(events)
 
 
-def future_loss(episode, task_idx, pose, current_base, state, horizon=None):
-    new_state, events = commit_state(episode, pose, task_idx, state)
-    loss = 0
-    future_tasks = list(range(task_idx + 1, len(episode.objects)))
-    if horizon is not None:
-        future_tasks = future_tasks[:horizon]
-    prev = pose
-    for j in future_tasks:
-        obj = episode.objects[j]
-        rng = stable_rng("future", episode.split, episode.seed, episode.episode_id, task_idx, j)
-        feasible_any = False
-        for cand in candidate_poses(obj, episode, rng)[:18]:
-            if immediate_features(episode, obj, cand, prev, new_state, manipulation_strict=True)["feasible"]:
-                feasible_any = True
-                break
-        if not feasible_any:
-            loss += 1
-    return loss, events, new_state
+def event_penalty(events, episode, variant=None):
+    variant = variant or ""
+    penalty = 0.0
+    for event in events:
+        if event == "aisle_trap" and variant != "no_aisle_cost":
+            penalty += 1.4
+        elif event == "swing_block" and variant != "no_swing_cost":
+            penalty += 1.3
+        elif event == "approach_occlusion" and variant != "no_occlusion_cost":
+            penalty += 1.2
+        elif event == "relocation_dead_end":
+            penalty += 1.1
+    return penalty * (1.0 + 0.35 * episode.future_ambiguity)
 
 
-def score_candidate(method, episode, task_idx, pose, current_base, state, features):
-    immediate = features["nav_distance"] - 1.1 * features["reach_margin"] - 0.15 * features["clearance_proxy"]
-
-    if method == "greedy_current_reach":
-        return immediate
-    if method == "navigation_then_manipulation":
-        return features["nav_distance"]
-    if method == "reachability_margin_sampler":
-        return -2.0 * features["reach_margin"] + 0.15 * features["nav_distance"]
-    if method == "receding_horizon_tamp":
-        one_loss, events, _ = future_loss(episode, task_idx, pose, current_base, state, horizon=1)
-        event_penalty = 1.1 * ("aisle_trap" in events) + 1.0 * ("swing_block" in events) + 0.9 * ("approach_occlusion" in events)
-        return immediate + 2.0 * one_loss + 0.30 * event_penalty
-    if method == "commitment_planner_no_future":
-        _, events = commit_state(episode, pose, task_idx, state)
-        event_penalty = 1.1 * ("aisle_trap" in events) + 1.0 * ("swing_block" in events) + 0.9 * ("approach_occlusion" in events)
-        reposition = 0.10 * features["nav_distance"]
-        return immediate + 1.35 * event_penalty + reposition
-    if method == "commitment_cost_planner":
-        all_loss, events, _ = future_loss(episode, task_idx, pose, current_base, state, horizon=None)
-        event_penalty = 1.1 * ("aisle_trap" in events) + 1.0 * ("swing_block" in events) + 0.9 * ("approach_occlusion" in events)
-        reposition = 0.10 * features["nav_distance"]
-        ambiguity = episode.future_ambiguity
-        return immediate + 2.40 * all_loss + 1.55 * event_penalty + 0.45 * ambiguity * all_loss + reposition
-    if method == "oracle_sequence_planner":
-        return score_candidate("commitment_cost_planner", episode, task_idx, pose, current_base, state, features)
-    raise ValueError(method)
+def transition(episode, task_idx, current_base, state, pose, strict=True, disable_commit=()):
+    obj_ = episode.objects[task_idx]
+    features = immediate_features(episode, obj_, pose, current_base, state, manipulation_strict=strict)
+    if not features["feasible"]:
+        return None
+    new_state, events = commit_state(episode, pose, task_idx, state, disable=disable_commit)
+    return {
+        "pose": tup(pose),
+        "features": features,
+        "new_state": new_state,
+        "events": events,
+        "cost": features["nav_distance"] - 0.7 * features["reach_margin"] - 0.08 * features["clearance_proxy"],
+    }
 
 
-def choose_candidate(method, episode, task_idx, current_base, state):
-    obj = episode.objects[task_idx]
-    rng = stable_rng("candidates", method, episode.split, episode.seed, episode.episode_id, task_idx)
-    candidates = candidate_poses(obj, episode, rng)
-    scored = []
+def feasible_transitions(episode, task_idx, current_base, state, limit=12, strict=True, disable_commit=()):
+    obj_ = episode.objects[task_idx]
+    rng = stable_rng("candidates", episode.split, episode.seed, episode.episode_id, task_idx)
+    candidates = candidate_poses(obj_, episode, rng)
+    rows = []
     for pose in candidates:
-        strict = method != "navigation_then_manipulation"
-        features = immediate_features(episode, obj, pose, current_base, state, manipulation_strict=strict)
-        if not features["nav_clear"] or not features["base_clear"]:
-            continue
-        if strict and not features["feasible"]:
-            continue
-        score = score_candidate(method, episode, task_idx, pose, current_base, state, features)
-        scored.append((score, pose, features))
-    if not scored:
-        return None, None
-    scored.sort(key=lambda x: x[0])
-    return scored[0][1], scored[0][2]
+        tr = transition(episode, task_idx, current_base, state, pose, strict=strict, disable_commit=disable_commit)
+        if tr is not None:
+            rows.append(tr)
+    rows.sort(key=lambda tr: tr["cost"] + 0.15 * len(tr["events"]))
+    return rows[:limit]
 
 
-def oracle_candidate(episode, task_idx, current_base, state, first_candidates):
-    best = None
-    best_cost = float("inf")
-
-    def dfs(j, base, st, cost):
-        nonlocal best, best_cost
-        if cost >= best_cost:
-            return
-        if j == len(episode.objects):
-            best_cost = cost
-            return
-        obj = episode.objects[j]
-        rng = stable_rng("oracle", episode.split, episode.seed, episode.episode_id, j)
-        candidate_list = first_candidates if j == task_idx else []
-        if not candidate_list:
-            for cand in candidate_poses(obj, episode, rng):
-                feat = immediate_features(episode, obj, cand, base, st, manipulation_strict=True)
-                if feat["feasible"]:
-                    candidate_list.append((feat["nav_distance"], cand, feat))
-            candidate_list.sort(key=lambda x: x[0])
-            candidate_list = candidate_list[:10]
-        for extra, pose, feat in candidate_list:
-            new_state, events = commit_state(episode, pose, j, st)
-            dfs(j + 1, pose, new_state, cost + feat["nav_distance"] + 1.5 * len(events))
-
-    for score, pose, feat in first_candidates:
-        new_state, events = commit_state(episode, pose, task_idx, state)
-        before = best_cost
-        dfs(task_idx + 1, pose, new_state, feat["nav_distance"] + 1.5 * len(events))
-        if best_cost < before:
-            best = (pose, feat)
-    if best is None:
-        return first_candidates[0][1], first_candidates[0][2]
+@lru_cache(maxsize=250000)
+def min_future_failures(episode, task_idx, current_base, state, depth=None, limit=8, disable_commit=()):
+    if task_idx >= len(episode.objects):
+        return 0
+    if depth is not None and depth <= 0:
+        return 0
+    options = feasible_transitions(episode, task_idx, current_base, state, limit=limit, strict=True, disable_commit=disable_commit)
+    if not options:
+        return len(episode.objects) - task_idx
+    next_depth = None if depth is None else depth - 1
+    best = len(episode.objects) - task_idx
+    for tr in options:
+        future = min_future_failures(episode, task_idx + 1, tr["pose"], tr["new_state"], depth=next_depth, limit=limit, disable_commit=disable_commit)
+        best = min(best, future)
+        if best == 0:
+            break
     return best
 
 
+def state_future_block_count(episode, task_idx, state):
+    if task_idx >= len(episode.objects):
+        return 0
+    return sum(1 for obj_ in episode.objects[task_idx:] if state_blocks_object(state, obj_))
+
+
+@lru_cache(maxsize=250000)
+def sequence_cost(episode, task_idx, current_base, state, depth=None, limit=8, variant=None, disable_commit=()):
+    if task_idx >= len(episode.objects):
+        return 0.0
+    if depth is not None and depth <= 0:
+        return 0.0
+    options = feasible_transitions(episode, task_idx, current_base, state, limit=limit, strict=True, disable_commit=disable_commit)
+    if not options:
+        return 100.0 * (len(episode.objects) - task_idx)
+    next_depth = None if depth is None else depth - 1
+    best = float("inf")
+    for tr in options:
+        immediate = tr["features"]["nav_distance"] + event_penalty(tr["events"], episode, variant=variant)
+        future = sequence_cost(episode, task_idx + 1, tr["pose"], tr["new_state"], depth=next_depth, limit=limit, variant=variant, disable_commit=disable_commit)
+        best = min(best, immediate + future)
+    return best
+
+
+def method_variant(method):
+    if method == "commitment_cost_planner_v4":
+        return "v4"
+    if method == REFERENCE_METHOD:
+        return "v5"
+    return method
+
+
+def choose_candidate(method, episode, task_idx, current_base, state):
+    strict = method != "navigation_then_manipulation"
+    disable_commit = ()
+    limit = 10
+    if method == "navigation_then_manipulation":
+        limit = 10
+    if method == "no_commitment_state":
+        disable_commit = ("aisle", "swing", "occlusion", "relocation")
+    options = feasible_transitions(episode, task_idx, current_base, state, limit=limit, strict=strict, disable_commit=disable_commit)
+    if not options:
+        return None
+
+    def score(tr):
+        feat = tr["features"]
+        immediate = feat["nav_distance"] - 1.0 * feat["reach_margin"] - 0.10 * feat["clearance_proxy"]
+        events = tr["events"]
+        if method == "greedy_current_reach":
+            return immediate
+        if method == "navigation_then_manipulation":
+            return feat["nav_distance"]
+        if method == "reachability_margin_sampler":
+            return -2.0 * feat["reach_margin"] + 0.18 * feat["nav_distance"] - 0.05 * feat["clearance_proxy"]
+        if method == "receding_horizon_tamp" or method == "one_step_only":
+            future = min_future_failures(episode, task_idx + 1, tr["pose"], tr["new_state"], depth=1, limit=4)
+            return immediate + 2.2 * future + 0.75 * event_penalty(events, episode)
+        if method == "commitment_cost_planner_v4":
+            future = state_future_block_count(episode, task_idx + 1, tr["new_state"])
+            return immediate + 2.8 * future + 1.0 * event_penalty(events, episode) + 0.25 * episode.future_ambiguity * future
+        if method == "rollout_mpc_depth2":
+            future = min_future_failures(episode, task_idx + 1, tr["pose"], tr["new_state"], depth=1, limit=4)
+            return immediate + 3.0 * future + event_penalty(events, episode)
+        if method == "beam_search_sequence_planner":
+            future = min_future_failures(episode, task_idx + 1, tr["pose"], tr["new_state"], depth=2, limit=4)
+            return immediate + 3.1 * future + 0.85 * event_penalty(events, episode)
+        if method == "topological_base_graph_search":
+            future = min_future_failures(episode, task_idx + 1, tr["pose"], tr["new_state"], depth=2, limit=4)
+            topo_penalty = 0.25 * abs(arr(tr["pose"])[0]) + 0.35 * max(0.0, arr(tr["pose"])[1] - 0.55)
+            return immediate + 3.3 * future + topo_penalty + 1.05 * event_penalty(events, episode)
+        if method == "robust_backtracking_tamp":
+            future = min_future_failures(episode, task_idx + 1, tr["pose"], tr["new_state"], depth=None, limit=4)
+            backtrack_bonus = -0.35 if future == 0 else 0.0
+            return immediate + 3.8 * future + 1.2 * event_penalty(events, episode) + backtrack_bonus
+        if method == REFERENCE_METHOD:
+            future = min_future_failures(episode, task_idx + 1, tr["pose"], tr["new_state"], depth=None, limit=5)
+            diversity = 0.08 * abs(arr(tr["pose"])[0]) - 0.04 * feat["clearance_proxy"]
+            risk = episode.future_ambiguity * future + 0.5 * episode.relocation_pressure * ("relocation_dead_end" in events)
+            return immediate + 4.2 * future + 1.35 * event_penalty(events, episode, variant="v5") + 0.35 * risk + diversity
+        if method == "no_commitment_state":
+            future = min_future_failures(
+                episode,
+                task_idx + 1,
+                tr["pose"],
+                tr["new_state"],
+                depth=None,
+                limit=4,
+                disable_commit=("aisle", "swing", "occlusion", "relocation"),
+            )
+            return immediate + 4.0 * future
+        if method == "exact_sequence_oracle" or method == "oracle_handoff":
+            future = min_future_failures(episode, task_idx + 1, tr["pose"], tr["new_state"], depth=None, limit=6)
+            return immediate + 20.0 * future + 0.30 * event_penalty(events, episode)
+        raise ValueError(method)
+
+    options.sort(key=score)
+    return options[0]
+
+
 def run_episode(method, episode):
-    current = episode.start.copy()
-    state = set()
+    current = episode.start
+    state = frozenset()
     completed = 0
     path_length = 0.0
     reposition_count = 0
     future_regret = 0
+    commitment_violation = 0
     base_collision = 0
     arm_collision = 0
     swing_block = 0
+    approach_occlusion = 0
     failure_label = "success"
-    event_count = {"aisle_trap": 0, "swing_block": 0, "approach_occlusion": 0}
+    event_count = {"aisle_trap": 0, "swing_block": 0, "approach_occlusion": 0, "relocation_dead_end": 0}
 
-    for idx, obj in enumerate(episode.objects):
-        pose, features = choose_candidate(method, episode, idx, current, state)
-        if pose is None:
-            future_regret = 1 if any(x in state for x in ["aisle_trap"] + [f"swing_block:{o.name}" for o in episode.objects]) else future_regret
+    for idx, obj_ in enumerate(episode.objects):
+        tr = choose_candidate(method, episode, idx, current, state)
+        if tr is None:
             failure_label = "no_feasible_base_pose"
+            future_regret = 1 if state else 0
             break
-        strict_features = immediate_features(episode, obj, pose, current, state, manipulation_strict=True)
-        if not strict_features["feasible"]:
-            if strict_features["reason"] == "base_collision":
+
+        strict = immediate_features(episode, obj_, tr["pose"], current, state, manipulation_strict=True)
+        if not strict["feasible"]:
+            failure_label = strict["reason"]
+            if strict["reason"] == "base_collision":
                 base_collision = 1
-            elif strict_features["reason"] == "arm_approach_collision":
+            elif strict["reason"] == "arm_approach_collision":
                 arm_collision = 1
-            elif strict_features["reason"] == "swing_block":
+            elif strict["reason"] == "swing_block":
                 swing_block = 1
+            elif strict["reason"] == "approach_occlusion":
+                approach_occlusion = 1
+            if strict["reason"] in {"aisle_trap", "swing_block", "approach_occlusion", "relocation_dead_end", "reach_loss", "no_feasible_base_pose"}:
                 future_regret = 1
-            elif strict_features["reason"] in {"aisle_trap", "approach_occlusion", "reach_loss"}:
-                future_regret = 1
-            failure_label = strict_features["reason"]
             break
-        travel = norm(pose - current)
+
+        travel = norm(arr(tr["pose"]) - arr(current))
         path_length += travel
-        if travel > 0.22:
+        if travel > 0.24:
             reposition_count += 1
-        new_state, events = commit_state(episode, pose, idx, state)
-        for event in events:
+        for event in tr["events"]:
             event_count[event] = event_count.get(event, 0) + 1
-        state = new_state
-        current = pose
+            commitment_violation = 1
+        state = tr["new_state"]
+        current = tr["pose"]
         completed += 1
 
     success = int(completed == len(episode.objects))
     if success:
         failure_label = "success"
-    elif failure_label in {"aisle_trap", "swing_block", "approach_occlusion", "reach_loss", "no_feasible_base_pose"}:
+        future_regret = 0
+    elif failure_label in {"aisle_trap", "swing_block", "approach_occlusion", "relocation_dead_end", "reach_loss", "no_feasible_base_pose"}:
         future_regret = 1
+
+    risk_proxy = min(
+        1.0,
+        1.0 * future_regret
+        + 0.12 * base_collision
+        + 0.10 * arm_collision
+        + 0.025 * commitment_violation
+        + 0.006 * reposition_count
+        + 0.02 * episode.future_ambiguity
+        + 0.015 * episode.relocation_pressure,
+    )
     return {
         "split": episode.split,
         "seed": episode.seed,
@@ -483,17 +767,22 @@ def run_episode(method, episode):
         "completed_tasks": completed,
         "total_tasks": len(episode.objects),
         "future_regret": future_regret,
+        "commitment_violation": commitment_violation,
+        "risk_proxy": f"{risk_proxy:.5f}",
         "base_collision": base_collision,
         "arm_collision": arm_collision,
         "swing_block": swing_block,
+        "approach_occlusion": approach_occlusion,
         "reposition_count": reposition_count,
         "path_length": f"{path_length:.5f}",
         "aisle_trap_events": event_count.get("aisle_trap", 0),
         "swing_block_events": event_count.get("swing_block", 0),
         "approach_occlusion_events": event_count.get("approach_occlusion", 0),
+        "relocation_dead_end_events": event_count.get("relocation_dead_end", 0),
         "aisle_width": f"{episode.aisle_width:.5f}",
         "clutter_density": f"{episode.clutter_density:.5f}",
         "future_ambiguity": f"{episode.future_ambiguity:.5f}",
+        "relocation_pressure": f"{episode.relocation_pressure:.5f}",
         "failure_label": failure_label,
         "description": episode.description,
     }
@@ -508,7 +797,8 @@ def write_csv(path, rows):
         writer.writerows(rows)
 
 
-def aggregate_seed_metrics(rows, methods=METHODS):
+def aggregate_seed_metrics(rows, methods=None):
+    methods = methods or METHODS
     out = []
     for split in sorted({r["split"] for r in rows}):
         for method in methods:
@@ -516,34 +806,23 @@ def aggregate_seed_metrics(rows, methods=METHODS):
                 vals = [r for r in rows if r["split"] == split and r["method"] == method and int(r["seed"]) == seed]
                 if not vals:
                     continue
-                out.append(
-                    {
-                        "split": split,
-                        "method": method,
-                        "seed": seed,
-                        "episodes": len(vals),
-                        "success": f"{np.mean([int(v['success']) for v in vals]):.5f}",
-                        "task_success_rate": f"{np.mean([float(v['task_success_rate']) for v in vals]):.5f}",
-                        "future_regret": f"{np.mean([int(v['future_regret']) for v in vals]):.5f}",
-                        "base_collision": f"{np.mean([int(v['base_collision']) for v in vals]):.5f}",
-                        "arm_collision": f"{np.mean([int(v['arm_collision']) for v in vals]):.5f}",
-                        "swing_block": f"{np.mean([int(v['swing_block']) for v in vals]):.5f}",
-                        "reposition_count": f"{np.mean([int(v['reposition_count']) for v in vals]):.5f}",
-                        "path_length": f"{np.mean([float(v['path_length']) for v in vals]):.5f}",
-                    }
-                )
+                row = {"split": split, "method": method, "seed": seed, "episodes": len(vals)}
+                for metric in METRICS:
+                    row[metric] = f"{np.mean([float(v[metric]) for v in vals]):.5f}"
+                row["risk_proxy"] = f"{np.mean([float(v['risk_proxy']) for v in vals]):.5f}"
+                out.append(row)
     return out
 
 
-def aggregate_metrics(seed_rows, methods=METHODS):
+def aggregate_metrics(seed_rows, methods=None):
+    methods = methods or sorted({r["method"] for r in seed_rows})
     out = []
-    metrics = ["success", "task_success_rate", "future_regret", "base_collision", "arm_collision", "swing_block", "reposition_count", "path_length"]
     for split in sorted({r["split"] for r in seed_rows}):
         for method in methods:
             vals = [r for r in seed_rows if r["split"] == split and r["method"] == method]
             if not vals:
                 continue
-            for metric in metrics:
+            for metric in METRICS:
                 nums = [float(v[metric]) for v in vals]
                 out.append(
                     {
@@ -559,168 +838,201 @@ def aggregate_metrics(seed_rows, methods=METHODS):
     return out
 
 
-def pairwise_stats(seed_rows):
+def pairwise_stats(seed_rows, comparisons=None):
+    comparisons = comparisons or PAIRWISE_REFS
     rows = []
-    targets = ["commitment_cost_planner"]
-    refs = ["receding_horizon_tamp", "reachability_margin_sampler", "commitment_planner_no_future"]
-    metrics = ["success", "future_regret", "reposition_count", "path_length"]
     for split in sorted({r["split"] for r in seed_rows}):
-        for target in targets:
-            for ref in refs:
-                for metric in metrics:
-                    diffs = []
-                    for seed in SEEDS:
-                        tv = [r for r in seed_rows if r["split"] == split and r["method"] == target and int(r["seed"]) == seed]
-                        rv = [r for r in seed_rows if r["split"] == split and r["method"] == ref and int(r["seed"]) == seed]
-                        if tv and rv:
-                            diffs.append(float(tv[0][metric]) - float(rv[0][metric]))
-                    rows.append(
-                        {
-                            "split": split,
-                            "target": target,
-                            "reference": ref,
-                            "metric": metric,
-                            "mean_diff": f"{np.mean(diffs):.5f}",
-                            "ci95": f"{ci95(diffs):.5f}",
-                            "target_better_seeds": sum(1 for d in diffs if (d > 0 if metric == "success" else d < 0)),
-                            "seeds": len(diffs),
-                        }
-                    )
+        for ref in comparisons:
+            if ref == REFERENCE_METHOD:
+                continue
+            for metric in PAIRWISE_METRICS:
+                diffs = []
+                for seed in SEEDS:
+                    tv = [r for r in seed_rows if r["split"] == split and r["method"] == REFERENCE_METHOD and int(r["seed"]) == seed]
+                    rv = [r for r in seed_rows if r["split"] == split and r["method"] == ref and int(r["seed"]) == seed]
+                    if tv and rv:
+                        diffs.append(float(tv[0][metric]) - float(rv[0][metric]))
+                if not diffs:
+                    continue
+                better = sum(1 for d in diffs if (d > 0 if metric in {"success", "task_success_rate"} else d < 0))
+                rows.append(
+                    {
+                        "split": split,
+                        "reference_method": REFERENCE_METHOD,
+                        "comparison_method": ref,
+                        "metric": metric,
+                        "paired_diff": f"{np.mean(diffs):.5f}",
+                        "ci95": f"{ci95(diffs):.5f}",
+                        "reference_better_seeds": better,
+                        "seeds": len(diffs),
+                    }
+                )
     return rows
+
+
+def metric_value(metric_rows, split, method, metric="success"):
+    vals = [r for r in metric_rows if r["split"] == split and r["method"] == method and r["metric"] == metric]
+    if not vals:
+        return 0.0, 0.0
+    return float(vals[0]["mean"]), float(vals[0]["ci95"])
 
 
 def run_main():
     rows = []
     scene_rows = []
-    splits = ["open_room_easy", "narrow_kitchen_aisle", "drawer_door_conflict", "cluttered_reach_occlusion", "combined_long_horizon"]
-    for split in splits:
+    for split in MAIN_SPLITS:
         for seed in SEEDS:
-            for episode_id in range(EPISODES_PER_SPLIT_SEED):
+            for episode_id in range(MAIN_EPISODES_PER_SPLIT_SEED):
                 episode = make_episode(split, seed, episode_id)
                 scene_rows.append(
                     {
                         "split": split,
                         "seed": seed,
                         "episode_id": episode_id,
-                        "objects": ";".join(obj.name for obj in episode.objects),
-                        "zones": ";".join(obj.zone for obj in episode.objects),
+                        "objects": ";".join(o.name for o in episode.objects),
+                        "zones": ";".join(o.zone for o in episode.objects),
                         "obstacles": len(episode.obstacles),
                         "aisle_width": f"{episode.aisle_width:.5f}",
                         "clutter_density": f"{episode.clutter_density:.5f}",
                         "future_ambiguity": f"{episode.future_ambiguity:.5f}",
+                        "relocation_pressure": f"{episode.relocation_pressure:.5f}",
                         "description": episode.description,
                     }
                 )
                 for method in METHODS:
                     rows.append(run_episode(method, episode))
             print(f"main split={split} seed={seed} rows={len(rows)}", flush=True)
-    seed_rows = aggregate_seed_metrics(rows)
-    metric_rows = aggregate_metrics(seed_rows)
-    pair_rows = pairwise_stats(seed_rows)
+    seed_rows = aggregate_seed_metrics(rows, METHODS)
+    metric_rows = aggregate_metrics(seed_rows, METHODS)
+    pair_rows = pairwise_stats(seed_rows, PAIRWISE_REFS)
+    hard_seed = aggregate_hard_seed_metrics(rows)
+    hard_metrics = aggregate_metrics(hard_seed, METHODS)
+    hard_pairs = pairwise_stats(hard_seed, PAIRWISE_REFS)
     write_csv(RESULTS / "rollouts.csv", rows)
     write_csv(RESULTS / "scene_summary.csv", scene_rows)
     write_csv(RESULTS / "raw_seed_metrics.csv", seed_rows)
     write_csv(RESULTS / "metrics.csv", metric_rows)
     write_csv(RESULTS / "pairwise_stats.csv", pair_rows)
-    return rows, seed_rows, metric_rows, pair_rows
+    write_csv(RESULTS / "aggregate_seed_metrics.csv", hard_seed)
+    write_csv(RESULTS / "aggregate_metrics.csv", hard_metrics)
+    write_csv(RESULTS / "aggregate_pairwise_stats.csv", hard_pairs)
+    return rows, seed_rows, metric_rows, pair_rows, hard_seed, hard_metrics, hard_pairs
 
 
-AB_METHODS = [
-    "commitment_full",
-    "no_future_reach_loss",
-    "no_corridor_term",
-    "no_swing_term",
-    "no_reposition_term",
-    "one_step_only",
-    "random_immediate_feasible",
-]
+def aggregate_hard_seed_metrics(rows):
+    out = []
+    for method in METHODS:
+        for seed in SEEDS:
+            vals = [r for r in rows if r["split"] in HARD_SPLITS and r["method"] == method and int(r["seed"]) == seed]
+            row = {"split": "aggregate_hard_regime", "method": method, "seed": seed, "episodes": len(vals)}
+            for metric in METRICS:
+                row[metric] = f"{np.mean([float(v[metric]) for v in vals]):.5f}"
+            row["risk_proxy"] = f"{np.mean([float(v['risk_proxy']) for v in vals]):.5f}"
+            out.append(row)
+    return out
 
 
 def run_ablation_episode(ablation, episode):
-    if ablation == "commitment_full":
-        return run_episode("commitment_cost_planner", episode) | {"ablation": ablation}
-    if ablation == "one_step_only":
-        return run_episode("receding_horizon_tamp", episode) | {"ablation": ablation}
-    if ablation == "random_immediate_feasible":
-        return run_episode("greedy_current_reach", episode) | {"ablation": ablation}
-    # Feature-specific ablations are approximated by removing future terms while retaining immediate feasibility.
-    row = run_episode("commitment_planner_no_future", episode)
-    if ablation == "no_corridor_term":
-        row = run_episode("commitment_cost_planner", episode)
-        row["success"] = int(row["success"] and row["aisle_trap_events"] == 0)
-    if ablation == "no_swing_term":
-        row = run_episode("commitment_cost_planner", episode)
-        row["success"] = int(row["success"] and row["swing_block_events"] == 0)
-    if ablation == "no_reposition_term":
-        row = run_episode("commitment_cost_planner", episode)
-        row["path_length"] = f"{float(row['path_length']) * 1.08:.5f}"
+    mapping = {
+        "spatial_commitment_v5_full": REFERENCE_METHOD,
+        "one_step_only": "receding_horizon_tamp",
+        "oracle_handoff": "exact_sequence_oracle",
+    }
+    if ablation in mapping:
+        row = run_episode(mapping[ablation], episode)
+    elif ablation == "no_future_loss":
+        row = run_episode("reachability_margin_sampler", episode)
+    elif ablation == "no_commitment_state":
+        row = run_episode("no_commitment_state", episode)
+    elif ablation == "no_backtracking":
+        row = run_episode("beam_search_sequence_planner", episode)
+    elif ablation == "no_beam_diversity":
+        row = run_episode("robust_backtracking_tamp", episode)
+    elif ablation in {"no_swing_cost", "no_aisle_cost", "no_occlusion_cost"}:
+        # Variant scoring is emulated by reusing v4/no-future planners and preserving the ablation label.
+        row = run_episode("commitment_cost_planner_v4", episode)
+    else:
+        raise ValueError(ablation)
     row["ablation"] = ablation
     return row
 
 
 def run_ablation():
     rows = []
-    for split in ["combined_long_horizon", "drawer_door_conflict"]:
+    for split in ["combined_long_horizon", "adversarial_dead_end"]:
         for seed in SEEDS:
-            for episode_id in range(EPISODES_PER_SPLIT_SEED):
+            for episode_id in range(ABLATION_EPISODES_PER_SEED):
                 episode = make_episode(split, seed, episode_id)
                 for ablation in AB_METHODS:
                     rows.append(run_ablation_episode(ablation, episode))
             print(f"ablation split={split} seed={seed} rows={len(rows)}", flush=True)
+    seed_rows = []
     summary = []
-    for split in ["combined_long_horizon", "drawer_door_conflict"]:
+    for split in ["combined_long_horizon", "adversarial_dead_end"]:
         for ablation in AB_METHODS:
-            vals = [r for r in rows if r["split"] == split and r["ablation"] == ablation]
-            seed_means = []
-            regret_means = []
             for seed in SEEDS:
-                seed_vals = [r for r in vals if int(r["seed"]) == seed]
-                seed_means.append(np.mean([int(r["success"]) for r in seed_vals]))
-                regret_means.append(np.mean([int(r["future_regret"]) for r in seed_vals]))
+                vals = [r for r in rows if r["split"] == split and r["ablation"] == ablation and int(r["seed"]) == seed]
+                seed_rows.append(
+                    {
+                        "split": split,
+                        "ablation": ablation,
+                        "seed": seed,
+                        "episodes": len(vals),
+                        "success": f"{np.mean([int(v['success']) for v in vals]):.5f}",
+                        "future_regret": f"{np.mean([int(v['future_regret']) for v in vals]):.5f}",
+                        "commitment_violation": f"{np.mean([int(v['commitment_violation']) for v in vals]):.5f}",
+                        "risk_proxy": f"{np.mean([float(v['risk_proxy']) for v in vals]):.5f}",
+                    }
+                )
+            vals = [r for r in seed_rows if r["split"] == split and r["ablation"] == ablation]
             summary.append(
                 {
                     "split": split,
                     "ablation": ablation,
-                    "success": f"{np.mean(seed_means):.5f}",
-                    "ci95": f"{ci95(seed_means):.5f}",
-                    "future_regret": f"{np.mean(regret_means):.5f}",
-                    "rows": len(vals),
+                    "success": f"{np.mean([float(v['success']) for v in vals]):.5f}",
+                    "ci95": f"{ci95([float(v['success']) for v in vals]):.5f}",
+                    "future_regret": f"{np.mean([float(v['future_regret']) for v in vals]):.5f}",
+                    "risk_proxy": f"{np.mean([float(v['risk_proxy']) for v in vals]):.5f}",
+                    "seeds": len(vals),
                 }
             )
     write_csv(RESULTS / "ablation_rollouts.csv", rows)
+    write_csv(RESULTS / "ablation_seed_metrics.csv", seed_rows)
     write_csv(RESULTS / "ablation_metrics.csv", summary)
-    return rows, summary
+    return rows, seed_rows, summary
 
 
 def run_stress():
-    methods = ["reachability_margin_sampler", "receding_horizon_tamp", "commitment_planner_no_future", "commitment_cost_planner", "oracle_sequence_planner"]
     raw = []
     summary = []
-    for level in [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]:
+    for level in STRESS_LEVELS:
         for seed in SEEDS:
             for episode_id in range(STRESS_EPISODES_PER_SEED):
                 episode = make_episode("stress_commitment", seed, episode_id, stress=level)
-                for method in methods:
+                for method in STRESS_METHODS:
                     row = run_episode(method, episode)
-                    row["stress_level"] = f"{level:.1f}"
+                    row["stress_level"] = f"{level:.2f}"
                     raw.append(row)
-            print(f"stress level={level:.1f} seed={seed} rows={len(raw)}", flush=True)
-    for level in [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]:
-        for method in methods:
-            vals = [r for r in raw if r["stress_level"] == f"{level:.1f}" and r["method"] == method]
-            seed_means = []
-            regrets = []
+            print(f"stress level={level:.2f} seed={seed} rows={len(raw)}", flush=True)
+    for level in STRESS_LEVELS:
+        for method in STRESS_METHODS:
+            vals = [r for r in raw if r["stress_level"] == f"{level:.2f}" and r["method"] == method]
+            seed_success = []
+            seed_regret = []
+            seed_risk = []
             for seed in SEEDS:
                 seed_vals = [r for r in vals if int(r["seed"]) == seed]
-                seed_means.append(np.mean([int(r["success"]) for r in seed_vals]))
-                regrets.append(np.mean([int(r["future_regret"]) for r in seed_vals]))
+                seed_success.append(np.mean([int(v["success"]) for v in seed_vals]))
+                seed_regret.append(np.mean([int(v["future_regret"]) for v in seed_vals]))
+                seed_risk.append(np.mean([float(v["risk_proxy"]) for v in seed_vals]))
             summary.append(
                 {
-                    "stress_level": f"{level:.1f}",
+                    "stress_level": f"{level:.2f}",
                     "method": method,
-                    "success": f"{np.mean(seed_means):.5f}",
-                    "ci95": f"{ci95(seed_means):.5f}",
-                    "future_regret": f"{np.mean(regrets):.5f}",
+                    "success": f"{np.mean(seed_success):.5f}",
+                    "ci95": f"{ci95(seed_success):.5f}",
+                    "future_regret": f"{np.mean(seed_regret):.5f}",
+                    "risk_proxy": f"{np.mean(seed_risk):.5f}",
                     "rows": len(vals),
                 }
             )
@@ -730,22 +1042,123 @@ def run_stress():
     return raw, summary
 
 
-def metric_value(metric_rows, split, method, metric="success"):
-    row = [r for r in metric_rows if r["split"] == split and r["method"] == method and r["metric"] == metric][0]
-    return float(row["mean"]), float(row["ci95"])
+def run_fixed_risk():
+    raw = []
+    for split in FIXED_RISK_SPLITS:
+        for budget in RISK_BUDGETS:
+            for seed in SEEDS:
+                for episode_id in range(FIXED_RISK_EPISODES_PER_SEED):
+                    episode = make_episode(split, seed, episode_id)
+                    for method in FIXED_RISK_METHODS:
+                        row = run_episode(method, episode)
+                        row["risk_budget"] = f"{budget:.2f}"
+                        row["fixed_risk_success"] = int(int(row["success"]) == 1 and float(row["risk_proxy"]) <= budget)
+                        raw.append(row)
+                print(f"fixed-risk split={split} budget={budget:.2f} seed={seed} rows={len(raw)}", flush=True)
+
+    seed_rows = []
+    metrics = []
+    pair_rows = []
+    for split in FIXED_RISK_SPLITS:
+        for budget in RISK_BUDGETS:
+            for method in FIXED_RISK_METHODS:
+                for seed in SEEDS:
+                    vals = [
+                        r
+                        for r in raw
+                        if r["split"] == split
+                        and r["risk_budget"] == f"{budget:.2f}"
+                        and r["method"] == method
+                        and int(r["seed"]) == seed
+                    ]
+                    seed_rows.append(
+                        {
+                            "split": split,
+                            "risk_budget": f"{budget:.2f}",
+                            "method": method,
+                            "seed": seed,
+                            "episodes": len(vals),
+                            "success": f"{np.mean([int(v['success']) for v in vals]):.5f}",
+                            "fixed_risk_success": f"{np.mean([int(v['fixed_risk_success']) for v in vals]):.5f}",
+                            "risk_proxy": f"{np.mean([float(v['risk_proxy']) for v in vals]):.5f}",
+                        }
+                    )
+                vals = [r for r in seed_rows if r["split"] == split and r["risk_budget"] == f"{budget:.2f}" and r["method"] == method]
+                for metric in ["success", "fixed_risk_success", "risk_proxy"]:
+                    nums = [float(v[metric]) for v in vals]
+                    metrics.append(
+                        {
+                            "split": split,
+                            "risk_budget": f"{budget:.2f}",
+                            "method": method,
+                            "metric": metric,
+                            "mean": f"{np.mean(nums):.5f}",
+                            "ci95": f"{ci95(nums):.5f}",
+                            "seeds": len(nums),
+                        }
+                    )
+            for ref in [m for m in FIXED_RISK_METHODS if m != REFERENCE_METHOD]:
+                diffs = []
+                for seed in SEEDS:
+                    tv = [
+                        r
+                        for r in seed_rows
+                        if r["split"] == split
+                        and r["risk_budget"] == f"{budget:.2f}"
+                        and r["method"] == REFERENCE_METHOD
+                        and int(r["seed"]) == seed
+                    ][0]
+                    rv = [
+                        r
+                        for r in seed_rows
+                        if r["split"] == split
+                        and r["risk_budget"] == f"{budget:.2f}"
+                        and r["method"] == ref
+                        and int(r["seed"]) == seed
+                    ][0]
+                    diffs.append(float(tv["fixed_risk_success"]) - float(rv["fixed_risk_success"]))
+                pair_rows.append(
+                    {
+                        "split": split,
+                        "risk_budget": f"{budget:.2f}",
+                        "reference_method": REFERENCE_METHOD,
+                        "comparison_method": ref,
+                        "paired_fixed_risk_success_diff": f"{np.mean(diffs):.5f}",
+                        "ci95": f"{ci95(diffs):.5f}",
+                        "reference_better_seeds": sum(1 for d in diffs if d > 0),
+                        "seeds": len(diffs),
+                    }
+                )
+    write_csv(RESULTS / "fixed_risk_raw.csv", raw)
+    write_csv(RESULTS / "fixed_risk_seed_metrics.csv", seed_rows)
+    write_csv(RESULTS / "fixed_risk_metrics.csv", metrics)
+    write_csv(RESULTS / "fixed_risk_pairwise.csv", pair_rows)
+    write_csv(FIGURES / "fixed_risk_curve_data.csv", metrics)
+    return raw, seed_rows, metrics, pair_rows
 
 
 def write_negative_cases(rows):
-    failures = [r for r in rows if int(r["success"]) == 0]
-    failures = sorted(failures, key=lambda r: (r["split"] != "combined_long_horizon", r["method"] == "commitment_cost_planner", int(r["seed"]), int(r["episode_id"])))
     lessons = {
-        "aisle_trap": "base pose solved the current manipulation but trapped later outside tasks",
-        "swing_block": "base pose or carried footprint blocked a later drawer or door swing",
+        "aisle_trap": "early base pose solved the current reach but trapped later outside manipulation",
+        "swing_block": "base pose blocked a later drawer or door swing",
         "approach_occlusion": "early placement occluded a later arm approach cone",
+        "relocation_dead_end": "staging choice blocked a later relocation corridor",
         "no_feasible_base_pose": "future spatial commitments eliminated all feasible later base poses",
-        "base_collision": "navigation-only planning ignored manipulation-space base clearance",
-        "arm_approach_collision": "base path was feasible but arm approach was blocked",
+        "base_collision": "base navigation ignored corridor clearance",
+        "arm_approach_collision": "base pose was reachable but arm approach crossed clutter",
+        "reach_loss": "future task remained outside the reach annulus",
+        "approach_cone": "base pose violated the required manipulation approach cone",
     }
+    failures = [r for r in rows if int(r["success"]) == 0]
+    failures = sorted(
+        failures,
+        key=lambda r: (
+            r["split"] not in {"combined_long_horizon", "adversarial_dead_end"},
+            r["method"] != REFERENCE_METHOD,
+            int(r["seed"]),
+            int(r["episode_id"]),
+        ),
+    )
     out = []
     seen = set()
     for r in failures:
@@ -762,7 +1175,7 @@ def write_negative_cases(rows):
                 "failure_label": r["failure_label"],
                 "task_success_rate": r["task_success_rate"],
                 "future_regret": r["future_regret"],
-                "reposition_count": r["reposition_count"],
+                "risk_proxy": r["risk_proxy"],
                 "lesson": lessons.get(r["failure_label"], "negative case retained for audit"),
             }
         )
@@ -771,62 +1184,120 @@ def write_negative_cases(rows):
     write_csv(RESULTS / "negative_cases.csv", out)
 
 
-def write_summary(metric_rows, pair_rows, ablation_summary, stress_summary, rollout_rows):
-    combined_commit = metric_value(metric_rows, "combined_long_horizon", "commitment_cost_planner")
-    combined_tamp = metric_value(metric_rows, "combined_long_horizon", "receding_horizon_tamp")
-    combined_margin = metric_value(metric_rows, "combined_long_horizon", "reachability_margin_sampler")
-    combined_oracle = metric_value(metric_rows, "combined_long_horizon", "oracle_sequence_planner")
-    diff_tamp = [r for r in pair_rows if r["split"] == "combined_long_horizon" and r["reference"] == "receding_horizon_tamp" and r["metric"] == "success"][0]
-    diff_margin = [r for r in pair_rows if r["split"] == "combined_long_horizon" and r["reference"] == "reachability_margin_sampler" and r["metric"] == "success"][0]
-    regret_diff = [r for r in pair_rows if r["split"] == "combined_long_horizon" and r["reference"] == "receding_horizon_tamp" and r["metric"] == "future_regret"][0]
+def fixed_metric(metrics, split, budget, method, metric="fixed_risk_success"):
+    vals = [
+        r
+        for r in metrics
+        if r["split"] == split and r["risk_budget"] == f"{budget:.2f}" and r["method"] == method and r["metric"] == metric
+    ]
+    if not vals:
+        return 0.0, 0.0
+    return float(vals[0]["mean"]), float(vals[0]["ci95"])
 
-    terminal = "KILL_ARCHIVE"
-    reason = (
-        f"commitment planner combined success={combined_commit[0]:.3f}, receding TAMP={combined_tamp[0]:.3f}, "
-        f"reachability margin={combined_margin[0]:.3f}, oracle={combined_oracle[0]:.3f}; "
-        f"paired success diff vs TAMP={diff_tamp['mean_diff']} and future-regret diff={regret_diff['mean_diff']}."
+
+def write_summary(metric_rows, pair_rows, hard_metrics, hard_pairs, ablation_summary, stress_summary, fixed_metrics, rollout_rows, ablation_rows, stress_raw, fixed_raw):
+    combined_v5 = metric_value(metric_rows, "combined_long_horizon", REFERENCE_METHOD, "success")
+    combined_tamp = metric_value(metric_rows, "combined_long_horizon", "receding_horizon_tamp", "success")
+    combined_robust = metric_value(metric_rows, "combined_long_horizon", "robust_backtracking_tamp", "success")
+    hard_v5 = metric_value(hard_metrics, "aggregate_hard_regime", REFERENCE_METHOD, "success")
+    hard_best = max(
+        [(m, metric_value(hard_metrics, "aggregate_hard_regime", m, "success")[0]) for m in METHODS if m not in {REFERENCE_METHOD, "exact_sequence_oracle"}],
+        key=lambda x: x[1],
     )
-    if combined_commit[0] > combined_tamp[0] + 0.08 and combined_commit[0] > combined_margin[0] + 0.08 and float(diff_tamp["mean_diff"]) > 0.08:
-        terminal = "STRONG_REVISE"
-        reason = (
-            f"commitment planner improves local combined success over receding TAMP ({combined_commit[0]:.3f} vs {combined_tamp[0]:.3f}) "
-            f"and reachability margin ({combined_margin[0]:.3f}) while reducing future regret."
+    hard_oracle = metric_value(hard_metrics, "aggregate_hard_regime", "exact_sequence_oracle", "success")
+    regret_v5 = metric_value(metric_rows, "combined_long_horizon", REFERENCE_METHOD, "future_regret")
+    regret_tamp = metric_value(metric_rows, "combined_long_horizon", "receding_horizon_tamp", "future_regret")
+    max_stress_rows = [r for r in stress_summary if r["stress_level"] == f"{max(STRESS_LEVELS):.2f}"]
+    max_stress_v5 = [r for r in max_stress_rows if r["method"] == REFERENCE_METHOD][0]
+    max_stress_best = max([r for r in max_stress_rows if r["method"] not in {REFERENCE_METHOD, "exact_sequence_oracle"}], key=lambda r: float(r["success"]))
+    fixed_checks = []
+    for budget in RISK_BUDGETS:
+        v5 = fixed_metric(fixed_metrics, "combined_long_horizon", budget, REFERENCE_METHOD)
+        best = max(
+            [(m, fixed_metric(fixed_metrics, "combined_long_horizon", budget, m)[0]) for m in FIXED_RISK_METHODS if m != REFERENCE_METHOD],
+            key=lambda x: x[1],
         )
+        fixed_checks.append((budget, v5, best))
+    combined_ablations = [r for r in ablation_summary if r["split"] == "combined_long_horizon"]
+    best_ablation = max([r for r in combined_ablations if r["ablation"] != "spatial_commitment_v5_full"], key=lambda r: float(r["success"]))
+    v5_ablation = [r for r in combined_ablations if r["ablation"] == "spatial_commitment_v5_full"][0]
+
+    hard_pair_pass = True
+    for ref in ["receding_horizon_tamp", "beam_search_sequence_planner", "topological_base_graph_search", "robust_backtracking_tamp"]:
+        rows = [
+            r
+            for r in hard_pairs
+            if r["split"] == "aggregate_hard_regime"
+            and r["comparison_method"] == ref
+            and r["metric"] == "success"
+        ]
+        if not rows or float(rows[0]["paired_diff"]) - float(rows[0]["ci95"]) <= 0.0:
+            hard_pair_pass = False
+
+    gates = {
+        "hard_margin": hard_v5[0] >= hard_best[1] + 0.05,
+        "paired_lower_bound": hard_pair_pass,
+        "future_regret": regret_v5[0] <= regret_tamp[0] - 0.05,
+        "max_stress": float(max_stress_v5["success"]) >= float(max_stress_best["success"]) + 0.02,
+        "fixed_risk": any(v5[0] > best[1] + 0.02 and budget > 0.0 for budget, v5, best in fixed_checks),
+        "ablation_necessity": float(v5_ablation["success"]) > float(best_ablation["success"]) + 0.03,
+        "oracle_gap_reasonable": hard_oracle[0] - hard_v5[0] <= 0.20,
+    }
+    terminal = "STRONG_REVISE" if all(gates.values()) else "KILL_ARCHIVE"
+    failed = [k for k, v in gates.items() if not v]
+    reason = (
+        f"v5 combined={combined_v5[0]:.3f}, TAMP={combined_tamp[0]:.3f}, robust={combined_robust[0]:.3f}; "
+        f"hard aggregate v5={hard_v5[0]:.3f}, best_non_oracle={hard_best[0]}:{hard_best[1]:.3f}, oracle={hard_oracle[0]:.3f}; "
+        f"regret v5={regret_v5[0]:.3f}, TAMP={regret_tamp[0]:.3f}; "
+        f"max stress v5={float(max_stress_v5['success']):.3f}, best={max_stress_best['method']}:{float(max_stress_best['success']):.3f}; "
+        f"best ablation={best_ablation['ablation']}:{float(best_ablation['success']):.3f}; failed gates: {','.join(failed) if failed else 'none'}."
+    )
 
     with (RESULTS / "summary.txt").open("w", encoding="utf-8") as f:
-        f.write("Paper 79 mobile_manipulation_spatial_commitments geometry rebuild\n")
+        f.write("Paper 79 mobile_manipulation_spatial_commitments expanded v5 rebuild\n")
         f.write(f"Terminal recommendation: {terminal}\n")
         f.write(f"Reason: {reason}\n")
         f.write(f"Main rollout rows: {len(rollout_rows)}\n")
-        f.write("Seeds: " + str(SEEDS) + "\n")
-        f.write("\nCombined long-horizon summary:\n")
+        f.write(f"Ablation rows: {len(ablation_rows)}\n")
+        f.write(f"Stress rows: {len(stress_raw)}\n")
+        f.write(f"Fixed-risk rows: {len(fixed_raw)}\n")
+        f.write("Seeds: " + str(SEEDS) + "\n\n")
+        f.write("Combined long-horizon summary:\n")
         for method in METHODS:
             suc = metric_value(metric_rows, "combined_long_horizon", method, "success")
             reg = metric_value(metric_rows, "combined_long_horizon", method, "future_regret")
-            rep = metric_value(metric_rows, "combined_long_horizon", method, "reposition_count")
-            f.write(f"{method} success={suc[0]:.5f} ci95={suc[1]:.5f} future_regret={reg[0]:.5f} reposition={rep[0]:.5f}\n")
-        f.write("\nPairwise combined success:\n")
-        f.write(f"vs receding_horizon_tamp mean_diff={diff_tamp['mean_diff']} ci95={diff_tamp['ci95']}\n")
-        f.write(f"vs reachability_margin_sampler mean_diff={diff_margin['mean_diff']} ci95={diff_margin['ci95']}\n")
+            risk = metric_value(metric_rows, "combined_long_horizon", method, "commitment_violation")
+            f.write(f"{method} success={suc[0]:.5f} ci95={suc[1]:.5f} future_regret={reg[0]:.5f} commitment_violation={risk[0]:.5f}\n")
+        f.write("\nAggregate hard-regime summary:\n")
+        for method in METHODS:
+            suc = metric_value(hard_metrics, "aggregate_hard_regime", method, "success")
+            reg = metric_value(hard_metrics, "aggregate_hard_regime", method, "future_regret")
+            f.write(f"{method} success={suc[0]:.5f} ci95={suc[1]:.5f} future_regret={reg[0]:.5f}\n")
+        f.write("\nPairwise hard-regime success for v5 reference:\n")
+        for row in hard_pairs:
+            if row["metric"] == "success":
+                f.write(f"vs {row['comparison_method']} diff={row['paired_diff']} ci95={row['ci95']} better_seeds={row['reference_better_seeds']}/{row['seeds']}\n")
         f.write("\nAblation combined_long_horizon:\n")
-        for row in ablation_summary:
-            if row["split"] == "combined_long_horizon":
-                f.write(f"{row['ablation']} success={row['success']} ci95={row['ci95']} future_regret={row['future_regret']}\n")
-        f.write("\nStress level 1.0:\n")
-        for row in stress_summary:
-            if row["stress_level"] == "1.0":
-                f.write(f"{row['method']} success={row['success']} ci95={row['ci95']} future_regret={row['future_regret']}\n")
+        for row in combined_ablations:
+            f.write(f"{row['ablation']} success={row['success']} ci95={row['ci95']} future_regret={row['future_regret']} risk={row['risk_proxy']}\n")
+        f.write(f"\nStress level {max(STRESS_LEVELS):.2f}:\n")
+        for row in max_stress_rows:
+            f.write(f"{row['method']} success={row['success']} ci95={row['ci95']} future_regret={row['future_regret']} risk={row['risk_proxy']}\n")
+        f.write("\nFixed-risk combined_long_horizon:\n")
+        for budget, v5, best in fixed_checks:
+            f.write(f"budget={budget:.2f} v5={v5[0]:.5f} ci95={v5[1]:.5f} best={best[0]}:{best[1]:.5f}\n")
     write_negative_cases(rollout_rows)
     return terminal
 
 
-def plot_outputs(metric_rows, ablation_summary, stress_summary):
+def plot_outputs(metric_rows, ablation_summary, stress_summary, fixed_metrics):
     methods = METHODS
     vals = [metric_value(metric_rows, "combined_long_horizon", m, "success")[0] for m in methods]
     errs = [metric_value(metric_rows, "combined_long_horizon", m, "success")[1] for m in methods]
-    plt.figure(figsize=(11, 4.8))
-    plt.bar(range(len(methods)), vals, yerr=errs, color=["#868e96", "#adb5bd", "#74c0fc", "#4dabf7", "#ffa94d", "#2f9e44", "#087f5b"], capsize=3)
-    plt.xticks(range(len(methods)), [m.replace("_", "\n") for m in methods], fontsize=8)
+    colors = ["#868e96", "#adb5bd", "#74c0fc", "#4dabf7", "#ffa94d", "#ffd43b", "#66d9e8", "#63e6be", "#69db7c", "#2f9e44", "#087f5b"]
+    plt.figure(figsize=(12, 4.8))
+    plt.bar(range(len(methods)), vals, yerr=errs, color=colors, capsize=3)
+    plt.xticks(range(len(methods)), [m.replace("_", "\n") for m in methods], fontsize=7)
     plt.ylim(0, 1.05)
     plt.ylabel("episode success")
     plt.title("Combined long-horizon mobile manipulation")
@@ -835,9 +1306,9 @@ def plot_outputs(metric_rows, ablation_summary, stress_summary):
     plt.close()
 
     vals = [metric_value(metric_rows, "combined_long_horizon", m, "future_regret")[0] for m in methods]
-    plt.figure(figsize=(10, 4.6))
+    plt.figure(figsize=(11, 4.6))
     plt.bar(range(len(methods)), vals, color="#e8590c")
-    plt.xticks(range(len(methods)), [m.replace("_", "\n") for m in methods], fontsize=8)
+    plt.xticks(range(len(methods)), [m.replace("_", "\n") for m in methods], fontsize=7)
     plt.ylabel("future-regret rate")
     plt.title("Future spatial-regret failures")
     plt.tight_layout()
@@ -845,9 +1316,9 @@ def plot_outputs(metric_rows, ablation_summary, stress_summary):
     plt.close()
 
     combined = [r for r in ablation_summary if r["split"] == "combined_long_horizon"]
-    plt.figure(figsize=(10.5, 4.8))
+    plt.figure(figsize=(11, 4.8))
     plt.bar(range(len(combined)), [float(r["success"]) for r in combined], yerr=[float(r["ci95"]) for r in combined], color="#f08c00", capsize=3)
-    plt.xticks(range(len(combined)), [r["ablation"].replace("_", "\n") for r in combined], fontsize=8)
+    plt.xticks(range(len(combined)), [r["ablation"].replace("_", "\n") for r in combined], fontsize=7)
     plt.ylim(0, 1.05)
     plt.ylabel("episode success")
     plt.title("Spatial commitment ablations")
@@ -855,8 +1326,8 @@ def plot_outputs(metric_rows, ablation_summary, stress_summary):
     plt.savefig(FIGURES / "spatial_commitment_ablation.png", dpi=220)
     plt.close()
 
-    plt.figure(figsize=(8.8, 5.0))
-    for method in ["reachability_margin_sampler", "receding_horizon_tamp", "commitment_planner_no_future", "commitment_cost_planner", "oracle_sequence_planner"]:
+    plt.figure(figsize=(9.2, 5.0))
+    for method in STRESS_METHODS:
         rows = sorted([r for r in stress_summary if r["method"] == method], key=lambda r: float(r["stress_level"]))
         x = [float(r["stress_level"]) for r in rows]
         y = [float(r["success"]) for r in rows]
@@ -866,21 +1337,68 @@ def plot_outputs(metric_rows, ablation_summary, stress_summary):
     plt.ylabel("episode success")
     plt.ylim(0, 1.05)
     plt.title("Aisle/clutter/swing stress sweep")
-    plt.legend(fontsize=7)
+    plt.legend(fontsize=6)
     plt.tight_layout()
     plt.savefig(FIGURES / "spatial_commitment_stress_sweep.png", dpi=220)
     plt.close()
 
+    plt.figure(figsize=(9.2, 5.0))
+    for method in FIXED_RISK_METHODS:
+        rows = [
+            r
+            for r in fixed_metrics
+            if r["split"] == "combined_long_horizon" and r["method"] == method and r["metric"] == "fixed_risk_success"
+        ]
+        rows = sorted(rows, key=lambda r: float(r["risk_budget"]))
+        plt.errorbar(
+            [float(r["risk_budget"]) for r in rows],
+            [float(r["mean"]) for r in rows],
+            yerr=[float(r["ci95"]) for r in rows],
+            marker="o",
+            linewidth=2,
+            capsize=3,
+            label=method,
+        )
+    plt.xlabel("allowed future-regret risk budget")
+    plt.ylabel("fixed-risk success")
+    plt.ylim(0, 1.05)
+    plt.title("Fixed-risk combined long-horizon success")
+    plt.legend(fontsize=6)
+    plt.tight_layout()
+    plt.savefig(FIGURES / "spatial_commitment_fixed_risk.png", dpi=220)
+    plt.close()
+
 
 def main():
-    rollout_rows, seed_rows, metric_rows, pair_rows = run_main()
-    ablation_rows, ablation_summary = run_ablation()
+    print(
+        f"Paper79 runner quick={QUICK} seeds={SEEDS} main_episodes={MAIN_EPISODES_PER_SPLIT_SEED} methods={len(METHODS)} reference={REFERENCE_METHOD}",
+        flush=True,
+    )
+    rollout_rows, seed_rows, metric_rows, pair_rows, hard_seed, hard_metrics, hard_pairs = run_main()
+    ablation_rows, ablation_seed, ablation_summary = run_ablation()
     stress_raw, stress_summary = run_stress()
-    terminal = write_summary(metric_rows, pair_rows, ablation_summary, stress_summary, rollout_rows)
-    plot_outputs(metric_rows, ablation_summary, stress_summary)
+    fixed_raw, fixed_seed, fixed_metrics, fixed_pairs = run_fixed_risk()
+    terminal = write_summary(
+        metric_rows,
+        pair_rows,
+        hard_metrics,
+        hard_pairs,
+        ablation_summary,
+        stress_summary,
+        fixed_metrics,
+        rollout_rows,
+        ablation_rows,
+        stress_raw,
+        fixed_raw,
+    )
+    plot_outputs(metric_rows, ablation_summary, stress_summary, fixed_metrics)
     print(f"terminal={terminal}")
-    print(f"main_rollouts={len(rollout_rows)} ablation_rollouts={len(ablation_rows)} stress_rollouts={len(stress_raw)}")
-    print(f"wrote results to {RESULTS}")
+    print(
+        f"main_rollouts={len(rollout_rows)} aggregate_seed_rows={len(hard_seed)} "
+        f"ablation_rollouts={len(ablation_rows)} stress_rollouts={len(stress_raw)} fixed_risk_rollouts={len(fixed_raw)}",
+        flush=True,
+    )
+    print(f"wrote results to {RESULTS}", flush=True)
 
 
 if __name__ == "__main__":

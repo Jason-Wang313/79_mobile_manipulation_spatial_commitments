@@ -28,3 +28,20 @@
 10. PDF gate: `paper/main.pdf` rebuilt cleanly after BibTeX-author and float-placement cleanup, then copied to `C:/Users/wangz/Downloads/79.pdf`.
 11. Artifact gate: `C:/Users/wangz/Downloads/79.pdf` SHA256 is `F6FF3F2AB2733EB8079DB6E80F1682619EB8EA212289ECD861342FBCB0C509E0`; `C:/Users/wangz/Desktop/79.pdf` is absent.
 12. Final decision: KILL_ARCHIVE. The paper is reproducible as a negative diagnostic, but not submission-ready for ICLR main.
+
+## 2026-06-21 Expanded v5 Audit
+
+1. Plan-first requirement: satisfied by `docs/paper79_expanded_submission_plan_20260621.md` before the expanded run.
+2. Code gate: `python -m py_compile src/run_experiment.py`, `python -m py_compile scripts/generate_manuscript.py`, and `python -m py_compile scripts/validate_submission_artifacts.py` passed during the rebuild.
+3. CSV integrity gate: audited 7,392 `rollouts.csv` rows, 672 `scene_summary.csv` rows, 616 `raw_seed_metrics.csv` rows, 770 `metrics.csv` rows, 252 `pairwise_stats.csv` rows, 88 `aggregate_seed_metrics.csv` rows, 110 `aggregate_metrics.csv` rows, 36 `aggregate_pairwise_stats.csv` rows, 1,600 `ablation_rollouts.csv` rows, 4,096 `stress_sweep_raw.csv` rows, 3,072 `fixed_risk_raw.csv` rows, and 12 `negative_cases.csv` rows.
+4. Seed gate: seeds 0 through 7 are present.
+5. Main baseline gate: the evaluated methods include receding-horizon TAMP, v4 commitment cost, depth-2 rollout MPC, beam search, topological graph search, robust backtracking TAMP, `spatial_commitment_tree_search_v5`, and an exact sequence oracle.
+6. Decisive split: on `combined_long_horizon`, v5 reaches `0.000 +/- 0.000` success, tying `receding_horizon_tamp`, `robust_backtracking_tamp`, and the exact oracle.
+7. Aggregate hard-regime result: v5 reaches `0.396 +/- 0.005` success, tying `robust_backtracking_tamp` and the exact oracle.
+8. Paired statistics: v5 minus robust backtracking hard-regime success difference is `0.00000 +/- 0.00000`.
+9. Stress and fixed-risk gates: at stress level `1.40`, v5 success is `0.000`; fixed-risk combined-long-horizon success is `0.000` for all evaluated budgets.
+10. Ablation gate: ablations do not establish that future-loss scoring, commitment-state prediction, or backtracking are necessary for the frozen evidence.
+11. PDF gate: generated a 68-page manuscript with bright boxed clickable citations and no hard LaTeX log warnings.
+12. Artifact gate: `C:/Users/wangz/Downloads/79.pdf` SHA256 is `858EF0AD1A929071167AF5781397AFFA2F727DE59D3C70FFDCE454CB5B244ED8`; `C:/Users/wangz/Desktop/79.pdf` is absent.
+13. Visual QA gate: rendered all pages and inspected representative title, citation, figure, appendix-table, fixed-risk, and reference pages; no clipping or unreadable rendering was found.
+14. Final decision: KILL_ARCHIVE. The v5 paper is a reproducible negative archive, not an ICLR-main-ready submission.

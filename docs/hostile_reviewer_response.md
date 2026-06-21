@@ -35,3 +35,18 @@ The continuation audit strengthens the hostile-reviewer conclusion rather than w
 - At maximum stress, every evaluated planner reaches 0.000 success and 1.000 future regret.
 
 The only honest response is to archive the paper as a reproducible failed mechanism test.
+
+## 2026-06-21 Expanded v5 Response
+
+The expanded v5 audit makes the hostile-reviewer answer clearer, not prettier. The method is more thoroughly tested, but it still does not survive the strongest baselines:
+
+- `spatial_commitment_tree_search_v5`: `0.000 +/- 0.000` combined long-horizon success.
+- `receding_horizon_tamp`: `0.000 +/- 0.000` combined long-horizon success.
+- `robust_backtracking_tamp`: `0.000 +/- 0.000` combined long-horizon success.
+- Hard-regime aggregate v5 success: `0.396 +/- 0.005`, tying robust backtracking and the exact oracle.
+- Paired hard-regime success difference versus robust backtracking: `0.00000 +/- 0.00000`.
+- Maximum-stress v5 success: `0.000`.
+- Fixed-risk combined-long-horizon v5 success: `0.000` at all evaluated budgets.
+- Ablations do not prove the spatial-commitment mechanism is necessary.
+
+The only honest response remains: keep Paper 79 as a validated negative archive.
